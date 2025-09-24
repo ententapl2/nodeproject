@@ -25,7 +25,7 @@ const server = createServer((req, res) => {
 	
 	for (let conf of pathConf) {
 
-		if (conf.path === path.replace(/\/$/, '')) {
+		if (conf.path === path.replace((/^(?!\/$)(.*)\/$/) ,'$1')) {
 			conf.allowed_methods.includes(method) ? conf.handler(req, res) : methodNotAllowed(req, res);
 			break;
 		} 
