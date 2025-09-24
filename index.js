@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { URL } from 'node:url'
 import {root, hello, methodNotAllowed, notFound} from './pageHandlers.js'
+import { config } from 'node:process';
 
 const port = 8000;
 const host = 'localhost';
@@ -24,7 +25,7 @@ const server = createServer((req, res) => {
 	
 	for (let conf of pathConf) {
 
-		if (conf.path === path) {
+		if (conf.path === path.replace(/\/$/, '')) {
 			conf.allowed_methods.includes(method) ? conf.handler(req, res) : methodNotAllowed(req, res);
 			break;
 		} 
