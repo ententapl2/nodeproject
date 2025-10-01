@@ -1,11 +1,16 @@
 import { createServer } from 'node:http';
 import { URL } from 'node:url'
-import {root, hello, methodNotAllowed, notFound} from './pageHandlers.js'
+import {root, hello, methodNotAllowed, notFound, favicon} from './pageHandlers.js'
 import { config } from 'node:process';
 
 const port = 8000;
 const host = 'localhost';
 const pathConf = [
+	 {
+		path:'/favicon.ico',
+		allowed_methods:['GET'],
+		handler:favicon
+	},
 	{
 		path:'/',
 		allowed_methods:['GET'],

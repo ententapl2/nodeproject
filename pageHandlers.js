@@ -11,6 +11,12 @@ export function hello(req, res) {
     res.end("Hello world\n");
 }
 
+export function favicon(req, res) {
+    const icon = readFileSync('./favicon.ico');
+    res.writeHead(200, {'Content-Type': 'image/vnd.microsoft.icon'})
+    res.end(icon);
+}
+
 export function notFound(req, res) {
     res.writeHead(404, {'Content-Type': 'text/plain'});
     res.end('Page not found!');
