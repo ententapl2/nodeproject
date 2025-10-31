@@ -1,0 +1,19 @@
+Praca projektowa: zasady klasyfikacji
+
+1. Temat projektu
+   Napisanie serwera HTTP obsługującego dynamiczne widoki w Express
+2. Mininalny zakres projektu
+   Projekt musi korzystać z frameworku Express
+   Aplikacja będzie obsługiwać przynajmniej 3 kombinacje ścieżka+metoda
+   Obsługa [GET /] jest obowiązkowa
+   Treści na stronie głównej będę generowana dynamicznie
+   Jedna z obługiwanych ścieżek będzie poprawnie obsługiwać żądanie POST
+   Treść poprawnie obsłużonego żądania POST zostanie odzwierciedlona na stronie głównej
+3. Termin oddania projektu: 
+   Projekt zostanie oddany do końca dnia 12.11.2025
+   Oddanie projektu po terminie może skutkować obniżeniem oceny
+4. Forma oddania projektu:
+   Projekt zostanie dostarczony w formie folderu o nazwie "projekt02" umieszczonego w publicznym repozytorium dostępnym na jednej z popularnych stron obsługujących repozytoria git (GitHub, GitLab)
+5. Kryteria oceny
+   - Aplikacja zaachowuje się zgodnie z wymaganiami
+   - README opisuje uruchomienie i konfigurację projektu
