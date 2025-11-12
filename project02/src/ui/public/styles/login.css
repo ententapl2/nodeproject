@@ -1,0 +1,159 @@
+._headerNav {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+
+}
+
+.__headerHome img {
+
+    width:55px;
+    height:auto;
+}
+
+@media only screen and (min-width:500px) {
+   .__headerHome img {
+        width:150px;
+        height:auto;
+   } 
+}
+
+.__headerOptions {
+    display:flex;
+}
+
+.__headerOptions img {
+
+    width:50px;
+    height:auto;
+
+}
+
+
+main {
+    align-items: center;
+    row-gap:1em;
+}
+
+main .title {
+
+    font-size: 3rem;
+    color:rgb(255, 166, 0);
+
+}
+
+#form {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap:1.5em;
+    width:100%;
+}
+
+.fieldWrapper {
+    display:flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.fieldWrapper label {
+    position: absolute;
+    left:1em;
+    top:0.5em;
+    color:white;
+    font-size:0.8em;
+}
+
+
+.field {
+    background-color: #ffffff0a;
+    outline:none;
+    border:1px solid transparent;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding:2.5em 2em 1em 1em;
+    color:white;
+    font-weight: normal;
+    transition: outline 0.31s linear;
+
+}
+
+.field:focus {
+
+    border: 1.7px solid rgb(255, 166, 0);
+
+}
+
+.field:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+    color:white;
+
+    font-weight: normal;
+    border: 1.7px solid rgb(156, 154, 255);
+
+}
+
+.submit {
+
+    padding:1.5em;
+    background:inherit;
+    color:rgb(255, 166, 0);
+    border:1px solid rgb(255, 166, 0);
+    border-radius: 8px;
+    cursor:pointer;
+
+    transition: all 0.31s linear;
+    
+}
+
+.submit:hover {
+    border-color:transparent;
+    background-color: rgb(255, 166, 0);
+    color:black;
+    transform: scale(1.1);
+}
+
+.notifications {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap:1em;
+    max-width:800px;
+}
+
+.notification {
+    
+    font-family:Saira;
+    background-color: rgb(127, 0, 0);
+    color: rgb(255, 156, 156);
+    max-width:250px;
+    width:100%;
+    height: 100%;
+    padding:1.5em;
+    box-sizing: border-box;
+    border-radius: 13px;
+
+}
+
+.notification.nonfatal {
+    background-color: rgb(0, 76, 0);
+    color:rgb(115, 249, 115);
+    
+}
+
+.notification * {
+    font-family:Saira;
+}
+
+.registerLink {
+    text-decoration:underline;
+    color:rgb(255, 166, 0);
+}

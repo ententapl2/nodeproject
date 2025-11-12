@@ -1,0 +1,135 @@
+<%- include('./partials/head.ejs', { scripts:scripts, styles:styles, title:'Strona główna'}) %> 
+
+
+<nav class="_headerNav">
+
+    <div class="__headerHome active" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerSearchBar">
+
+        <input type="search" placeholder="🔍︎ Szukaj..." name="query=">
+        
+    </div>
+
+    <div class="__headerOptions">
+        <img src="/images/icons/search.svg" id="searchIconButton">
+        <% if (account.id) { %>
+         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+        <% } %>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+    </div>
+
+
+</nav>
+
+<main class="_hub">
+
+    <section class="__banner">
+        
+        <h1> <%= account.id ? `Witaj, ${account.name}!` : 'Umfragen - miejsce pełne ankiet' %> </h1>
+
+    </section>
+
+    <section class="__gallery">
+
+        <h2 class="___galleryTitle">
+            <figure>
+                <img src="/images/icons/star.svg">
+                <figcaption>Popularne ankiety</figcaption>
+            </figure>
+        </h2>
+        <div class="___galleryContent">
+
+            <% mostPopularPolls.forEach(poll => { %>
+                <figure class="poll">
+                    <img src="/images/icons/poll.svg">
+                    <figcaption>
+                        <h4> <%= poll.question %> </h4>
+                        <ul class="pollOptions">
+                        <% poll.options.forEach(option => { %><li> <%= option.name %> </li><% }) %>
+                        </ul>
+                    </figcaption>
+
+                    <a href="/poll/<%= poll.id %>" class="pollVoteButton">
+                        <img src="/images/icons/vote.svg">
+                        <span>ZAGŁOSUJ</span>
+                    </a>
+                </figure>
+            <% }) %>
+
+        </div>
+
+    </section>
+
+    <section class="__gallery">
+
+        <h2 class="___galleryTitle">
+            <figure>
+                <img src="/images/icons/recent.svg">
+                <figcaption>Najnowsze ankiety</figcaption>
+            </figure>
+        </h2>
+        <div class="___galleryContent">
+
+            <% recentPolls.forEach(poll => { %>
+                <figure class="poll">
+                    <img src="/images/icons/poll.svg">
+                    <figcaption>
+                        <h4> <%= poll.question %> </h4>
+                        <ul class="pollOptions">
+                        <% poll.options.forEach(option => { %><li> <%= option.name %> </li><% }) %>
+                        </ul>
+                    </figcaption>
+
+                    <a href="/poll/<%= poll.id %>" class="pollVoteButton">
+                        <img src="/images/icons/vote.svg">
+                        <span>ZAGŁOSUJ</span>
+                    </a>
+                </figure>
+            <% }) %>
+
+        </div>
+
+    </section>
+
+    <section class="__gallery">
+
+        <h2 class="___galleryTitle">
+            <figure>
+                <img src="/images/icons/active.svg">
+                <figcaption>Najaktywniejsi użytkownicy</figcaption>
+            </figure>
+        </h2>
+        <div class="___galleryContent">
+
+            <% mostActiveUsers.forEach(user => { %>
+
+            <a href="/user/<%= user.id %>" title="Zobacz profil użytkownika <%= user.name %>">
+                <figure class="user">
+                    <div class="userDefaultAvatar"> <%= user.name.charAt(0) %> </div>
+                    <figcaption> <%= user.name %> </figcaption>
+                </figure>
+            </a>
+
+            <% }) %>
+
+        </div>
+
+    </section>
+
+    <a id="addPollButton" href="/new"><img src="/images/icons/plus.svg" alt="Dodaj nową ankietę" title="Dodaj nową ankietę"></a>
+    <ul class="circles"><% for (let i=0; i<14; i++) { %> <li></li><% } %></ul>
+    
+
+
+</main>
+
+
+<%- include('./partials/footer.ejs') %>

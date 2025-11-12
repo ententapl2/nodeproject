@@ -1,0 +1,23 @@
+main {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1 {
+    color:rgb(255, 166, 0);
+}
+
+main #homeButton {
+
+    text-decoration: none;
+    color:white;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.31s linear;
+
+}
+
+
+main #homeButton:hover {
+    border-color:white;
+}

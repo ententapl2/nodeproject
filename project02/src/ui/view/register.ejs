@@ -1,0 +1,80 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:'Strona główna'}) %> 
+
+<nav class="_headerNav">
+
+    <div class="__headerHome" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerOptions">
+        <img src="/images/icons/user.svg" id="userIconButton" alt="Ikona prezentująca użytkownika">
+    </div>
+
+</nav>
+
+<main>
+
+    <h1 class="title">ZAREJESTRUJ SIĘ</h1>
+
+    <div class="notifications">
+        <div class="notification nonfatal">
+            Zanim zaczniesz... 
+            <ul>
+                <li>Ustaw bezpieczne hasło, minimum 12 znaków i jeden znak specjalny</li>
+                <li>Pamiętliwą nazwę użytkownika - nie może mieć spacji</li>
+            </ul>
+
+        </div>
+
+        <% if (errors.length !== 0) { %>
+        <div class="notification">
+            Błędy w trakcie rejestracji
+        <ul>
+        <% errors.forEach(error => { %>
+            <li><%= error %></div>
+        <% })}; %>
+        </ul>
+        </div>
+        
+    </div>
+
+    <form action="" method="POST" id="form">
+
+        <div class="fieldWrapper">
+            <label for="username">LOGIN</label>
+            <input type="text" class="field" name="username" id="username" 
+                placeholder="" 
+                minlength="3" 
+                maxlength="20" 
+                pattern="^\S+$" 
+                title="Nazwa nie może mieć spacji i musi mieć min.3 znaki" 
+                required
+            />
+        </div>
+        
+        <div class="fieldWrapper">
+            <label for="username">HASŁO</label>
+            <input type="password" class="field" name="password" id="password" 
+                placeholder="" 
+                minlength="12" 
+                maxlength="50" 
+                pattern="^(?!\s)[A-Za-z0-9]*[A-Z][A-Za-z0-9]*$" 
+                title="Hasło musi mieć min. 12 znaków i jeden znak specjalny" 
+                required 
+            />
+        </div>
+
+        <input type="submit" class="submit" value="ZAREJESTRUJ SIĘ">
+
+
+    </form>
+
+
+</main>
+
+<%- include('./partials/footer.ejs') %>

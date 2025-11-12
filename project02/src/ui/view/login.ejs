@@ -1,0 +1,57 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:'Strona główna'}) %> 
+
+<nav class="_headerNav">
+
+    <div class="__headerHome" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerOptions">
+        <img src="/images/icons/user.svg" id="userIconButton" alt="Ikona prezentująca użytkownika">
+    </div>
+
+</nav>
+
+<main>
+
+    <h1 class="title">ZALOGUJ SIĘ</h1>
+
+    <div class="notifications">
+        <% if (errors.length !== 0) { %>
+        <div class="notification">
+            Błędy w trakcie logowania
+        <ul>
+        <% errors.forEach(error => { %>
+            <li><%= error %></div>
+        <% })}; %>
+        </ul>
+        </div>
+    </div>
+
+    <form action="" method="POST" id="form">
+
+        <div class="fieldWrapper">
+            <label for="username">LOGIN</label>
+            <input type="text" class="field" name="username" id="username" placeholder="" minlength="3" maxlength="20" required>
+        </div>
+        
+        <div class="fieldWrapper">
+            <label for="password">HASŁO</label>
+            <input type="password" class="field" name="password" id="password" placeholder="" minlength="12" maxlength="50" required>
+        </div>
+
+        <input type="submit" class="submit" value="ZALOGUJ SIĘ">
+        <a href="/register" class="registerLink">*Zarejstruj się</a>
+
+
+    </form>
+
+
+</main>
+
+<%- include('./partials/footer.ejs') %>

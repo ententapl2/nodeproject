@@ -1,0 +1,82 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:user.name}) %>
+
+
+<nav class="_headerNav">
+
+    <div class="__headerHome" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerOptions">
+        <% if (account.id) { %>
+         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+        <% } %>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+    </div>
+
+
+</nav>
+
+<main class="_hub">
+
+    <section class="__banner">
+        <div class="___title">
+            <h1> <%= user.name %> </h1>
+            <button id="copyUserLinkButton" data-userId="<%= user.id %>">
+                <img src="/images/icons/link.svg" alt="Ikona prezentująca symbol hiperłącza"  title="Udostępnij ten profil">
+            </button>
+        </div>
+        <div class="___info">
+            <figure class="____infoLabel">
+                <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
+                <figcaption><%= stats.pollCount %> ankiet</figcaption>
+            </figure>
+            ·
+            <figure class="____infoLabel">
+                <img src="/images/icons/vote.svg" alt="Ikona prezentująca głos">
+                <figcaption><%= stats.voteCount %> głosów</figcaption>
+            </figure> 
+        </div>
+    </section>
+
+    <section class="__gallery">
+
+        <h2 class="___galleryTitle">
+            <figure>
+                <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankiety">
+                <figcaption>Ankiety</figcaption>
+            </figure>
+        </h2>
+
+        <div class="___galleryContent">
+
+            <% userPolls.forEach(poll => { %>
+                <figure class="poll">
+                    <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
+                    <figcaption>
+                        <h4> <%= poll.question %> </h4>
+                        <ul class="pollOptions">
+                        <% poll.options.forEach(option => { %><li> <%= option.name %> </li><% }) %>
+                        </ul>
+                    </figcaption>
+
+                    <a href="/poll/<%= poll.id %>" class="pollVoteButton">
+                        <img src="/images/icons/vote.svg" alt="Ikona prezentujaca głos">
+                        <span>ZAGŁOSUJ</span>
+                    </a>
+                </figure>
+            <% }) %>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<%- include('./partials/footer.ejs') %>

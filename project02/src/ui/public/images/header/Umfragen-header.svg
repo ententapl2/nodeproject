@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="180"
+   viewBox="0 0 132.29167 47.625"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="Umfragen-header.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.75473109"
+     inkscape:cx="291.49455"
+     inkscape:cy="281.55723"
+     inkscape:window-width="1920"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="matrix(0.25378481,0,0,0.25378481,-2.6256549,-14.377255)">
+      <g
+         id="g2">
+        <rect
+           style="opacity:1;fill:#ffc766;fill-opacity:1;stroke-width:7.22149;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;paint-order:stroke fill markers"
+           id="rect1"
+           width="41.123074"
+           height="115.59278"
+           x="26.799484"
+           y="123.26148"
+           ry="20.561537"
+           transform="translate(0.9793076,0.9793076)" />
+        <rect
+           style="opacity:1;fill:#f8c775;fill-opacity:1;stroke-width:5.53368;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;paint-order:stroke fill markers"
+           id="rect1-1"
+           width="41.123074"
+           height="67.874367"
+           x="140.42841"
+           y="170.97989"
+           ry="20.561537" />
+        <rect
+           style="opacity:1;fill:#ffa200;fill-opacity:1;stroke-width:8.95442;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:100;paint-order:stroke fill markers"
+           id="rect1-3"
+           width="41.123074"
+           height="177.72614"
+           x="83.613945"
+           y="61.128136"
+           ry="20.561537" />
+      </g>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:italic;font-weight:bold;font-size:15.1244px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold Italic';text-align:center;text-anchor:middle;fill:#ffa200;fill-opacity:1;stroke:#ffa200;stroke-width:0.428725;stroke-dasharray:none;stroke-opacity:1"
+     x="89.153595"
+     y="29.136292"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:ESPACION;-inkscape-font-specification:ESPACION;fill:#ffa200;fill-opacity:1;stroke:#ffa200;stroke-width:0.428725;stroke-dasharray:none;stroke-opacity:1"
+       x="89.153595"
+       y="29.136292">UMFRAGEN</tspan></text>
+</svg>

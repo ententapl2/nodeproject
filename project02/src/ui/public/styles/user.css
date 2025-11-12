@@ -1,0 +1,115 @@
+._headerNav {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+
+}
+
+.__headerHome img {
+
+    width:55px;
+    height:auto;
+}
+
+@media only screen and (min-width:500px) {
+   .__headerHome img {
+        width:150px;
+        height:auto;
+   } 
+}
+
+.__headerOptions {
+    display:flex;
+}
+
+.__headerOptions a, .__headerOptions form, .__headerOptions button {
+    all:unset;
+    display:contents;
+}
+
+.__headerOptions img {
+
+    width:50px;
+    height:auto;
+    cursor:pointer;
+
+}
+
+.__banner {
+
+    margin: 3em 0;
+}
+
+.___title {
+    display:flex;
+    align-items: center;
+    column-gap:0.5em;
+}
+
+#copyUserLinkButton {
+    all:unset;
+    display: contents;
+}
+
+.___title img {
+    cursor:pointer;
+    width:3em;
+    filter:invert(1);
+    opacity:0.3;
+    transition: opacity 0.3s ease opacity 0.3s ease;
+}
+
+.___title img:hover {
+    opacity:1;
+    filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(56%) 
+        sepia(95%) 
+        saturate(900%) 
+        hue-rotate(2deg) 
+        brightness(103%) 
+        contrast(101%) 
+        brightness(70%)
+    ;
+}
+
+.___title h1 {
+
+    color:rgb(255, 166, 0);
+    font-size: clamp(3rem, 10vw, 4rem);
+    font-weight:bolder;
+    word-break: break-all;
+    margin:0;
+
+}
+
+.___info {
+    display:flex;
+    flex-direction: row;
+    column-gap:0.2em;
+    color:white;
+}
+
+.____infoLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:0.2em;
+    margin:0;
+}
+
+.____infoLabel img {
+    width:0.8em;
+    height: auto;
+}
+
+.____infoLabel figcaption {
+    font-size: 0.8em;
+    font-weight: bold;
+    color:white;
+}

@@ -1,0 +1,54 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:'Strona główna'}) %> 
+
+<nav class="_headerNav">
+
+    <div class="__headerHome" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerOptions">
+        <% if (account.id) { %>
+         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+        <% } %>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+    </div>
+
+</nav>
+
+<main>
+
+    <div class="notifications">
+        <% if (errors.length !== 0) { %>
+        <div class="notification">
+            Błędy w trakcie tworzenia ankiety
+        <ul>
+        <% errors.forEach(error => { %>
+            <li><%= error %></div>
+        <% })}; %>
+        </ul>
+        </div>
+    </div>
+
+    <h1 class="__title">STWÓRZ ANKIETĘ</h1>
+
+    <form action="/new" method="POST" id="form">
+        <textarea type="text" placeholder="Pytanie ankiety..." name="question" minlength="1" maxlength="500" title="Maksymalna długość pytania to 500 znaków" required></textarea>
+        <div id="options">
+            <div class="option">
+                <input name="option[]" placeholder="Opcja..." minlength="1" maxlength="100" title="Maksymalna długość opcji to 100 znaków" required>
+            </div>
+        <button type="button" id="addOptionButton"><img src="/images/icons/plus.svg"></button>
+
+        </div>
+        <input type="submit" value="OPUBLIKUJ" class="submit">
+    </form>
+
+
+</main>
+
+<%- include('./partials/footer.ejs') %>

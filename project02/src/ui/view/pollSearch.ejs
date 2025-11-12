@@ -1,0 +1,43 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:`Wyniki wyszukiwania` }) %> 
+
+
+<nav class="_headerNav">
+
+    <div class="__headerHome active" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerSearchBar">
+
+        <input type="search" placeholder="🔍︎ Szukaj..." name="query=">
+        
+    </div>
+
+    <div class="__headerOptions">
+        <img src="/images/icons/search.svg" id="searchIconButton">
+        <% if (account.id) { %>
+         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+        <% } %>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+    </div>
+
+
+</nav>
+
+<main class="_hub">
+    <section class="__banner">
+
+        <h1>Wyniki wyszukiwania jeszcze niedostępne </h1>
+
+    </section>
+
+
+</main>
+
+
+<%- include('./partials/footer.ejs') %>

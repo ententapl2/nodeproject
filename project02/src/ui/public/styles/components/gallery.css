@@ -1,0 +1,160 @@
+.__gallery {
+
+    display:flex;
+    flex-direction: column;
+    width:100%;
+
+}
+
+.___galleryTitle figure {
+    display:inline-flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:0.5em;
+    margin:0;
+}
+
+.___galleryTitle img {
+
+    width:0.8em;
+
+}
+
+.___galleryTitle figcaption {
+    font-size:0.8em;
+    color:white;
+}
+
+.___galleryContent {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+    overflow-x:auto;
+    box-sizing: border-box;
+    padding: 1rem 0.5rem;
+
+}
+
+.poll {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+    position:relative;
+    width:15em;
+    height:18em;
+    margin:0.2em;
+    padding:0.2em;
+
+    backdrop-filter: blur(10px);
+    border: 1px solid #cccccc28;
+    border-radius: 13px;
+
+}
+
+.poll img {
+    width:3em;
+}
+
+.poll figcaption h4 {
+    color:white;
+    font-size:0.9em;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow:hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    max-width:100%;
+    
+
+}
+
+.pollOptions {
+
+
+    margin:0;
+    padding-left:0;
+}
+
+
+.pollOptions li {
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size:0.8em;
+    gap:0.8em;
+
+    list-style-type: none;
+    padding:0;
+    color:white;
+
+
+}
+
+.pollOptions li:not(:last-child) {
+    margin-bottom:0.5em;
+}
+
+.pollOptions li::before {
+    content: '';
+    display: inline-block;
+    width: 0.8em;
+    height:0.8em;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+
+}
+
+.pollVoteButton {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5em;
+
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding: 0.8em 0;
+    border-radius: 0 0 13px 13px;
+
+    font-size:0.8em;
+    text-decoration: none;
+    background-color: rgb(75, 75, 75);
+    backdrop-filter: blur(2px);
+
+    transition: background-color 0.3s linear;
+
+}
+
+.pollVoteButton span {
+
+    text-align: center;
+    color: white;
+
+}
+
+.pollVoteButton img {
+    width:2em;
+}
+
+
+.pollVoteButton:hover {
+    
+    background-color: rgba(255, 255, 255, 0.806);
+
+}
+
+.pollVoteButton:hover span {
+    color:black;
+}
+
+.pollVoteButton:hover img {
+    filter: invert(1);
+}

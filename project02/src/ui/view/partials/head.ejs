@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Umfragen | Miejsce pełne ankiet">
+    <meta name="author" content="M. Dobrowolski">
+    <meta name="keywords" content="polls, surveys, poll, survery, ankieta, ankiety, umfragen">
+
+    <link rel="icon" type="image/png" href="/images/favicon/Umfragen-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/favicon//Umfragen-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon/Umfragen-48x48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="/images/favicon/Umfragen-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/images/favicon/Umfragen-150x150.png" sizes="150x150">
+    <link rel="apple-touch-icon" href="/images/favicon/Umfragen-180x180.png" sizes="180x180">
+    <link rel="stylesheet" href="/styles/components/partials.css">
+
+    <title> <%= title.length > 60 ? title.slice(0, 59) + '...' : title %> | Umfragen </title>
+    <% scripts.forEach(script =>  { %>
+        <script type="<%= script.type %>" src="<%= script.src %>" defer></script> 
+    <% }) %>
+    <% styles.forEach(style => { %>
+        <link rel="stylesheet" href="<%= style.src %>">
+    <% }) %>
+
+</head>
+<body>

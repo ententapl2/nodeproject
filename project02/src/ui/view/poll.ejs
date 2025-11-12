@@ -1,0 +1,118 @@
+<%- include('./partials/head.ejs', {scripts, styles, title: poll.question}) %>
+
+<nav class="_headerNav">
+
+    <div class="__headerHome" id="headerIcon">
+        <a href="/">
+            <picture>
+                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
+            </picture>
+        </a>
+    </div>
+
+    <div class="__headerOptions">
+        <% if (account.id) { %>
+         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+        <% } %>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+    </div>
+
+
+</nav>
+
+<main class="_hub">
+    
+    <section class="__info">
+
+        <figure class="___title">
+                <h1><%= poll.question %></h1> 
+                <% if (poll.details.isAuthor) { %>
+                    <button id="deletePollButton"><img src="/images/icons/delete.svg" alt="Usuń ankietę" title="Usuń ankietę"></button>
+                    <button id="modifyPollButton"><img src="/images/icons/modify.svg" alt="Zmodifikuj ankietę - niedostępne" title="Aktualnie niedostępne. Coming soon"></button>
+                <% } %>
+        </figure>
+        <div class="___details">
+            <figure class="____infoLabel">
+                <img src="/images/icons/user.svg" alt="Ikona prezentująca autora">
+                <figcaption><a href="/user/<%= poll.authorId %>"><%= poll.authorName %> </a></figcaption>
+             </figure>
+            ·
+            <figure class="____infoLabel">
+                <figcaption><%= poll.publicationDate %></figcaption>
+             </figure>
+        </div>
+
+    </section>
+
+    <section class="__votes">
+
+        <% if (poll.hasVoted) { poll.options.forEach(option => { %>
+            <div class="____optionBar">
+                <div class="_____optionDescription"><%= option.name %></div> 
+                <div class="_____optionProgress" data-width="<%= option.voteCount%>"></div>
+                <div class="_____optionProgressNumeric"> <%= option.voteCount %>% </div>
+            </div>
+        <% }) %>
+
+            <div class="___seeMore">
+            <details>
+                <summary>SZCZEGÓŁY</summary>
+                <table class="____userVotes">
+
+                    <thead>
+                    <tr>
+                        <th>UŻYTKOWNIK</th>
+                        <th>L.P OPCJI</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        <% poll.votes.forEach(vote => { %>
+                    <tr>
+
+                        <td class="_____vote">
+                            <figure>
+                                <div class="userDefaultAvatar"> <%= vote.userName.charAt(0) %> </div>
+                                <figcaption><a href="/user/<%= vote.userId %>"> <%= vote.userName %> </a></figcaption>
+                            </figure>
+                        </td>
+                        <td>
+                            <%= vote.option %>
+                        </td>
+                        <% }) %>
+                        
+                    </tr>
+                    </tbody>
+
+                </table>
+                <hr>
+                <div class="____controls">
+                    <a <%- poll.details.page === 1 ? 'data-disabled' : `href="?page=${poll.details.page - 1}"` %>><img src="/images/icons/arrowThin.svg" alt="&lt" title="Poprzednia strona"></a>
+                    <data id="pageNumber"> <%= poll.details.page %> </data>
+                    <a <%- poll.details.isEnd ? 'data-disabled' : `href="?page=${poll.details.page + 1}"` %>><img src="/images/icons/arrowThin.svg" alt="&gt" title="Następna strona"></a>
+                </div>
+            </details>
+            </div>
+        <% } else { %>
+
+        <form action="/poll/<%= poll.id %>" method="POST">
+            <% poll.options.forEach(option => { %>
+            <button class="____optionButton" name="option" type="submit" value="<%= option.id %>">
+            <div class="____optionBar">
+                <div class="_____optionDescription"><%= option.name %></div> 
+            </div>
+            </button>
+            <% }) %>
+        <input type="hidden" value="vote" name="method">
+        </form>
+
+        <% } %>
+
+
+
+    </section>
+
+</main>
+
+<%- include('./partials/footer.ejs') %>

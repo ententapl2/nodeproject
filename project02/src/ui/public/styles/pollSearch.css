@@ -1,0 +1,199 @@
+._headerNav {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+
+}
+
+.__headerHome img {
+
+    width:55px;
+    height:auto;
+}
+
+@media only screen and (min-width:500px) {
+   .__headerHome img {
+        width:150px;
+        height:auto;
+   } 
+}
+
+
+.__headerSearchBar {
+    display:flex;
+    justify-content: center;
+    min-width: 0;
+    flex:1;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(30px);
+    transition: all 0.4s ease;
+}
+
+@media only screen and (min-width:500px) {
+    .__headerSearchBar {
+        opacity:1;
+        visibility: visible;
+        transform: translateX(0);
+        transition-delay: 0s;
+    }
+}
+
+#userIconButton, #headerIcon, #logoutIconButton {
+    overflow: hidden;
+    max-width: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+}
+
+#headerIcon.active, #userIconButton.active, #logoutIconButton.active {
+    max-width:initial;
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    transition-delay: 0s;
+}
+
+
+.__headerSearchBar.active {
+    opacity:1;
+    visibility: visible;
+    transform: translateX(0);
+    transition-delay: 0s;
+}
+
+.__headerSearchBar input {
+
+    width:100%;
+    max-width:500px;
+    box-sizing: border-box;
+    padding: 1em;
+    background-color:rgba(255, 255, 255, 0);
+    color:white;
+
+    outline:none;
+    border: 1px solid #cccccc75;
+    border-radius: 13px ;
+
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 13px;
+    background: url(/images/icons/clearSearchBar.svg) no-repeat 50% 50%;
+    background-size: contain;
+    filter:invert(1);
+    opacity:0.3;
+    cursor: pointer;
+    transition: opacity 0.31s linear;
+}
+
+input[type="search"]::-webkit-search-cancel-button:hover {
+    opacity: 0.8;
+}
+
+input:-webkit-autofill, input:focus, input:active{
+    box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset;
+    color:white !important;
+    -webkit-box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 0s, color 0s;
+}
+
+
+.__headerOptions {
+    display:flex;
+}
+
+.__headerOptions a, .__headerOptions form, .__headerOptions button {
+    all:unset;
+    display:contents;
+}
+
+.__headerOptions img {
+
+    width:50px;
+    height:auto;
+    cursor:pointer;
+
+}
+
+
+@media only screen and (min-width:500px) {
+    #searchIconButton {
+        display:none;
+    }
+}
+
+.__banner {
+    margin-bottom:3em;
+}
+
+.__banner h1 {
+    color:rgb(255, 166, 0);
+    font-size: clamp(2rem, 10vw, 3rem);
+    font-weight:bolder;
+    word-break: break-all;
+    margin-bottom:0;
+}
+
+.___galleryContent {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap:1em !important;
+}
+
+.___galleryContent + hr {
+    width:100%;
+    border:1px solid rgba(255, 166, 0, 0.319);
+}
+
+.____controls {
+
+    display: flex;
+    flex-direction: row;
+    column-gap:1em;
+    justify-content: space-between;
+
+}
+
+.____controls a {
+    all:unset;
+    display:contents;
+}
+
+.____controls a img {
+    width:2em;
+    cursor:pointer;
+    background-color:rgba(255, 166, 0, 0.489);
+    padding:0.5em;
+    border-radius:13px;
+}
+
+.____controls a[data-disabled] img {
+    width:2em;
+    cursor:pointer;
+    background-color:rgba(0, 0, 0, 0.489);
+    padding:0.5em;
+    border-radius:13px;
+    filter:brightness(50%);
+}
+
+.____controls a:nth-of-type(2) img {
+    transform: scaleX(-1);
+}
+
+.____controls data {
+    font-weight: bold;
+    font-size:1.5em;
+    color:rgb(255, 166, 0);;
+}

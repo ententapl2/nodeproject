@@ -1,0 +1,324 @@
+._headerNav {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+
+}
+
+.__headerHome img {
+
+    width:55px;
+    height:auto;
+}
+
+@media only screen and (min-width:500px) {
+   .__headerHome img {
+        width:150px;
+        height:auto;
+   } 
+}
+
+.__headerOptions {
+    display:flex;
+}
+
+.__headerOptions a, .__headerOptions form, .__headerOptions button {
+    all:unset;
+    display:contents;
+}
+
+.__headerOptions img {
+
+    width:50px;
+    height:auto;
+    cursor:pointer;
+
+}
+
+.___title {
+    display:flex;
+    flex-direction: row;
+    column-gap:0.5em;
+    align-items: center;
+    margin: 0;
+}
+
+.___title img {
+    width:2.5em;
+    filter:invert(1);
+    opacity:0.3;
+    transition: all 0.3s ease;
+    cursor:pointer;
+}
+
+.___title img:hover {
+    opacity: 1;
+    filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(56%) 
+        sepia(95%) 
+        saturate(900%) 
+        hue-rotate(2deg) 
+        brightness(103%) 
+        contrast(101%) 
+        brightness(70%)
+    ;
+}
+
+.__info {
+    margin: 3em 0;
+}
+
+.___title h1 {
+    color:rgb(255, 166, 0);
+    font-size: clamp(2rem, 10vw, 3rem);
+    font-weight:bolder;
+    word-break: break-all;
+    margin:0;
+    margin-bottom:0.2em;
+} 
+
+.___details {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.2em;
+    color:white;
+}
+
+.____infoLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:0.2em;
+    margin:0;
+}
+
+.____infoLabel img {
+    width:1em;
+    height: auto;
+}
+
+.____infoLabel figcaption {
+    font-size: 0.8em;
+    font-weight: bold;
+    color:white;
+}
+
+.____infoLabel a, ._____vote a {
+    color:white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.31s linear;
+}
+
+.____infoLabel a:hover, ._____vote a:hover {
+    border-bottom-color: white;
+}
+
+.__votes {
+    display:flex;
+    flex-direction: column;
+    row-gap:1em;
+}
+
+.__votes form, .____optionButton , #deletePollButton , #modifyPollButton {
+
+    all:unset;
+    display:contents;
+
+}
+
+.____optionBar {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    overflow:hidden;
+
+    position: relative;
+    box-sizing: border-box;
+    padding:1.5em;
+    border: 1px solid rgb(255, 166, 0);
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.102);
+
+}
+
+.____optionButton .____optionBar {
+    cursor:pointer;
+}
+
+._____optionProgress {
+
+    position:absolute;
+    left:0;
+    width:70%;
+    height:100%;
+    z-index:0;
+    background-color: rgba(255, 166, 0, 0.299);
+    border-radius: 100px;
+
+}
+
+._____optionDescription, ._____optionProgressNumeric {
+    z-index:1;
+    color:white;
+    font-weight: bold;
+}
+
+.___seeMore details summary {
+    color:black;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    width:fit-content;
+    background-color: rgb(255, 166, 0);
+    padding:0.8em;
+    margin:0.4em;
+    box-sizing: border-box;
+    border-radius: 13px;
+    list-style: none;
+    cursor:pointer;
+}
+
+.___seeMore details {
+    display:flex;
+    flex-direction: column;
+    
+    interpolate-size: allow-keywords;
+    
+    &::details-content {
+        transition:
+        block-size 0.6s,
+        content-visibility 0.6s allow-discrete;
+        overflow: hidden;
+        block-size: 0;
+    }
+    
+    &[open]::details-content {
+        block-size: auto;
+    }
+}
+
+.___seeMore details summary::-webkit-details-marker {
+  display:none;
+}
+
+.___seeMore hr {
+    border:1px solid rgba(255, 166, 0, 0.319);
+}
+
+.____userVotes {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.____userVotes tr, .____userVotes th {
+    color:white;
+}
+
+._____vote figure {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap:1em;
+    padding:0.5em;
+    margin:0 auto;
+    width:fit-content;
+
+}
+
+._____vote figcaption {
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+
+    color:white;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;  
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+._____vote figcaption a {
+    display: -webkit-box;
+    -webkit-box-orient: vertical; 
+
+    color:white;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    overflow: hidden;  
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+.userDefaultAvatar {
+    min-width:2rem;
+    min-height:2rem;
+    border-radius: 50%;
+    background-color: rgb(35, 35, 35);
+    color:white;
+    font-weight: bold;
+    font-size:1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.82);
+
+
+}
+
+
+.____controls {
+
+    display: flex;
+    flex-direction: row;
+    column-gap:1em;
+    justify-content: space-between;
+
+}
+
+.____controls a {
+    all:unset;
+    display:contents;
+}
+
+.____controls a img {
+    width:2em;
+    cursor:pointer;
+    background-color:rgba(255, 166, 0, 0.489);
+    padding:0.5em;
+    border-radius:13px;
+}
+
+.____controls a[data-disabled] img {
+    width:2em;
+    cursor:pointer;
+    background-color:rgba(0, 0, 0, 0.489);
+    padding:0.5em;
+    border-radius:13px;
+    filter:brightness(50%);
+}
+
+.____controls a:nth-of-type(2) img {
+    transform: scaleX(-1);
+}
+
+.____controls data {
+    font-weight: bold;
+    font-size:1.5em;
+    color:rgb(255, 166, 0);;
+}
