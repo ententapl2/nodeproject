@@ -1,0 +1,21 @@
+Praca projektowa: zasady klasyfikacji
+
+1. Temat projektu
+   Rozwój własnej aplikacji internetowej przechowującej informacje w bazie danych. Temat projektu należy wybrać na podstawie własnych zainteresowań i możliwości. Poza obowiązującymi regulacjami prawnymi w Polsce, tematyka jest dowolna.
+2. Mininalny zakres projektu
+   Projekt musi korzystać z frameworku Express
+   Aplikacja będzie obsługiwać przynajmniej 3 kombinacje ścieżka+metoda
+   Obsługa [GET /] jest obowiązkowa
+   Aplikacja będzie umożliwiać użytkownikowi wprowadzanie danych przy pomocy formularzy HTML i odbierać dane w żądaniach HTTP POST.
+   Dane wprowadzone do aplikacji będą przechowywane w sposób nieulotny w bazie danych
+   Aplikacja umożliwi użytkownikownikowi edycję i usunięcie wprowadzonych danych
+   Aplikacja od strony doświadczenia deweloperskiego umożliwi wypełnienie bazy danych danymi testowymi
+   README projektu będzie opisywać sposób konfiguracji i użycia aplikacji
+3. Termin oddania projektu: 
+   Projekt zostanie oddany do końca dnia 10.12.2025
+   Oddanie projektu po terminie może skutkować obniżeniem oceny
+4. Forma oddania projektu:
+   Projekt zostanie dostarczony w formie folderu o nazwie "projekt03" umieszczonego w publicznym repozytorium dostępnym na jednej z popularnych stron obsługujących repozytoria git (GitHub, GitLab)
+5. Kryteria oceny
+   - Aplikacja zaachowuje się zgodnie z wymaganiami
+   - README opisuje uruchomienie i konfigurację projektu
