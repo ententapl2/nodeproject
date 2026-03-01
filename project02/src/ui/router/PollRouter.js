@@ -43,15 +43,13 @@ export default class PollRouter {
                 publicationDate:poll.publicationDate,
                 options: poll.options.map(o => ({ ...o, voteCount: Number((((poll.votes[o.id]?.length ?? 0) / Object.values(poll.votes).flat().length) * 100).toFixed(2)) })),
                 hasVoted,
-                votes:  Object.entries(poll.votes).flatMap(
-                    ([optionId, votes], optionIndex) => 
-                        votes.map(vote => ({
+                votes:  poll.options.flatMap((option, i) => (pollQuery.votes[option.id] ?? []).map(
+                    vote => ({
                         userId: vote.user.id,
                         userName: vote.user.name,
-                        option: optionIndex + 1,
-                        optionId: Number(optionId) 
-                        }))
-                    ),
+                        option: i + 1,
+                        optionId: Number(option.id)
+                }))),
                 details:{
                     isAuthor:(req.session.userId === poll.author.id),
                     page:page,
