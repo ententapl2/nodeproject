@@ -15,6 +15,10 @@ function handleAddOption() {
     const input = document.createElement('input');
     input.name = 'option[]';
     input.placeholder = 'Nowa opcja';
+    input.minLength = 1;
+    input.maxLength = 100;
+    input.title = 'Maksymalna długość opcji to 100 znaków'
+    input.required = true;
 
     const button = document.createElement('button');
     button.type = 'button';
