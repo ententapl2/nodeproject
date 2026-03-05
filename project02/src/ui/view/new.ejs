@@ -23,11 +23,11 @@
 <main>
 
     <div class="notifications">
-        <% if (modifyViewModel.errors.length !== 0) { %>
+        <% if (newViewModel.errors.length !== 0) { %>
         <div class="notification">
             Błędy w trakcie tworzenia ankiety
             <ul>
-            <% modifyViewModel.errors.forEach(error => { %>
+            <% newViewModel.errors.forEach(error => { %>
                 <li><%= error %></li>
             <% }) %>
             </ul>
