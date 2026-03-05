@@ -8,7 +8,7 @@ export default class NewRouter {
             errors.push('Nieprawidłowe dane wejściowe');
             return errors;
         };
-        if (!Array.isArray(options)) errors.push('Nieprawidłowa lista opcji')
+        if (!Array.isArray(options) || !options.every(o => typeof o === 'string')) errors.push('Nieprawidłowa lista opcji')
         else {
             options.some(option => {option.length <  1 || option.length > 100}) && errors.push('Nieprawidłowa lista odpowiedzi')
         }
