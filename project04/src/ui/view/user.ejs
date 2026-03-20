@@ -1,0 +1,62 @@
+<%- include('./partials/head.ejs', { scripts, styles, title:userViewModel.userName}) %>
+
+
+
+<main class="_hub">
+
+    <section class="__banner">
+        <div class="___title">
+            <h1> <%= userViewModel.userName %> </h1>
+            <button id="copyUserLinkButton" data-userId="<%= userViewModel.userId %>">
+                <img src="/images/icons/link.svg" alt="Ikona prezentująca symbol hiperłącza"  title="Udostępnij ten profil">
+            </button>
+        </div>
+        <div class="___info">
+            <figure class="____infoLabel">
+                <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
+                <figcaption><%= userViewModel.pollCount %> ankiet</figcaption>
+            </figure>
+            ·
+            <figure class="____infoLabel">
+                <img src="/images/icons/vote.svg" alt="Ikona prezentująca głos">
+                <figcaption><%= userViewModel.voteCount %> głosów</figcaption>
+            </figure> 
+        </div>
+    </section>
+
+    <section class="__gallery">
+
+        <h2 class="___galleryTitle">
+            <figure>
+                <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankiety">
+                <figcaption>Ankiety</figcaption>
+            </figure>
+        </h2>
+
+        <div class="___galleryContent">
+
+            <% userViewModel.userPolls.forEach(poll => { %>
+                <figure class="poll">
+                    <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
+                    <figcaption>
+                        <h4> <%= poll.question %> </h4>
+                        <ul class="pollOptions">
+                        <% poll.options.forEach(option => { %><li> <%= option.name %> </li><% }) %>
+                        </ul>
+                    </figcaption>
+
+                    <a href="/poll/<%= poll.id %>" class="pollVoteButton">
+                        <img src="/images/icons/vote.svg" alt="Ikona prezentujaca głos">
+                        <span>ZAGŁOSUJ</span>
+                    </a>
+                </figure>
+            <% }) %>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<%- include('./partials/footer.ejs') %>

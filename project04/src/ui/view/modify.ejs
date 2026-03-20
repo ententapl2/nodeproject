@@ -1,0 +1,83 @@
+<%- include('./partials/head.ejs', { scripts, styles, title: "Zmodyfikuj ankietę"}) %>
+
+<main>
+
+    <h1 class="__title">MODYFIKUJ ANKIETĘ</h1>
+
+    <div class="notifications">
+        <% if (modifyViewModel.errors.length !== 0) { %>
+        <div class="notification">
+            Błędy w trakcie tworzenia ankiety
+            <ul>
+            <% modifyViewModel.errors.forEach(error => { %>
+                <li><%= error %></li>
+            <% }) %>
+            </ul>
+        </div>
+        <% } %>
+
+        <div class="notification nonfatal">
+            Modyfikacja lub usunięcie jednej z opcji będzie skutkować usunięciem powiązanych głosów
+        </div>
+    </div>
+
+    <form action="/poll/<%= modifyViewModel.pollId %>?_method=PUT" id="form" method="POST">
+
+        <textarea 
+            type="text"
+            placeholder="Pytanie ankiety..."
+            name="question"
+            minlength="1"
+            maxlength="500"
+            title="Maksymalna długość pytania to 500 znaków"
+            required 
+        ><%= Object.keys(modifyViewModel.cache).length !== 0 ? modifyViewModel.cache.question : '' %></textarea>
+
+        
+        <textarea 
+            type="text" 
+            placeholder="Opis ankiety... (opcjonalny)" 
+            name="description" 
+            maxlength="800" 
+            title="Maksymalna długość opisu ankiety to 800 znaków" 
+        ><%= Object.keys(modifyViewModel.cache).length !== 0 ? modifyViewModel.cache.description : '' %></textarea>
+
+
+        <div id="options">
+            <% if (Object.keys(modifyViewModel.cache).length !== 0) { modifyViewModel.cache.options.forEach((option, index) => { %>
+                <div class="option">
+                    <input type="hidden" name="oldOption[<%= option.id %>][id]" value="<%= option.id %>">
+                    <input 
+                        name="oldOption[<%= option.id %>][value]" 
+                        placeholder="Opcja..." 
+                        minlength="1"
+                        maxlength="100"
+                        title="Maksymalna długość opcji to 100 znaków"
+                        value="<%= option.name %>" 
+                        required
+                    > <button type="button" class="drop"><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button>
+                </div>
+
+            <% })} else { %>
+                <div class="option">
+                    <input name="option[]" 
+                        placeholder="Opcja..."
+                        minlength="1"
+                        maxlength="100"
+                        title="Maksymalna długość opcji to 100 znaków"
+                        required
+                    >
+                    <button type="button" class="drop"><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button>
+                </div>
+            <% } %>
+
+            <button type="button" id="addOptionButton"><img src="/images/icons/plus.svg"></button>
+
+        </div>
+        <input type="hidden" name="_csrf" value="<%= account.csrf %>">
+        <input type="submit" value="ZMODYFIKUJ" class="submit">
+    </form>
+
+</main>
+
+<%- include('./partials/footer.ejs') %>

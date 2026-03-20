@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Mocha Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
+      "args": ["test/*.js"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

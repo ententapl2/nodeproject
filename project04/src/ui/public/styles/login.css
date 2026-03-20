@@ -1,0 +1,117 @@
+main {
+    align-items: center;
+    row-gap:1em;
+
+    & .title {
+        font-size: 3rem;
+        color:rgb(255, 166, 0);
+    }
+
+    & .notifications {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        gap:1em;
+        max-width:800px;
+        
+        & .notification {
+            font-family:Saira;
+            background-color: rgb(127, 0, 0);
+            color: rgb(255, 156, 156);
+            max-width:250px;
+            width:100%;
+            padding:1.5em;
+            box-sizing: border-box;
+            border-radius: 13px;
+
+            & * {
+                font-family: Saira;
+            }
+
+            &.nonfatal {
+                background-color: rgb(0, 76, 0);
+                color:rgb(115, 249, 115);
+            }
+
+        }
+        
+    }
+
+    & #form {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap:1.5em;
+        width:100%;
+
+        & .fieldWrapper {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+
+            & label {
+                position: absolute;
+                left:1em;
+                top:0.5em;
+                color:white;
+                font-size:0.8em;
+            }
+
+            & .field {
+                background-color: #ffffff0a;
+                outline:none;
+                border:1px solid transparent;
+                box-sizing: border-box;
+                border-radius: 8px;
+                padding:2.5em 2em 1em 1em;
+                color:white;
+                font-weight: normal;
+                transition: outline 0.31s linear;
+
+                &:focus {
+                    border: 1.7px solid rgb(255, 166, 0);
+                }
+
+                &:-webkit-autofill {
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: white;
+                    color:white;
+
+                    font-weight: normal;
+                    border: 1.7px solid rgb(156, 154, 255); 
+                }
+
+            }
+
+
+        }
+
+        & .submit {
+            padding:1.5em;
+            background:inherit;
+            color:rgb(255, 166, 0);
+            border:1px solid rgb(255, 166, 0);
+            border-radius: 8px;
+            cursor:pointer;
+
+            transition: all 0.31s linear;
+
+            &:hover {
+                border-color:transparent;
+                background-color: rgb(255, 166, 0);
+                color:black;
+                transform: scale(1.1);
+            }
+        }
+
+        & .registerLink {
+            text-decoration:underline;
+            color:rgb(255, 166, 0);
+        }
+
+    }
+
+}

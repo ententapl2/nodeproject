@@ -1,0 +1,174 @@
+.__gallery {
+
+    display:flex;
+    flex-direction: column;
+    width:100%;
+
+    & .___galleryTitle {
+
+        & figure {
+            display:inline-flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap:0.5em;
+            margin:0;
+
+            & img {
+                width:0.8em;
+            }
+
+            & figcaption {
+                font-size:0.8em;
+                color:white;
+            }
+
+        }
+
+    }
+
+    & .___galleryContent {
+
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1em;
+        width:100%;
+        overflow-x:auto;
+        box-sizing: border-box;
+        padding: 1rem 0.5rem;
+        
+        &.grid {
+            flex-wrap: wrap;
+        }
+
+
+        &::-webkit-scrollbar {
+            width: 12px;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #555;
+        }
+
+        &::-webkit-scrollbar-thumb:active {
+            background-color: rgb(255, 166, 0);;
+        }
+
+        & .poll {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+
+            overflow-y:hidden;
+            position:relative;
+            min-width:15em;
+            width:250px;
+            height:18em;
+            margin:0.2em;
+            padding:0.2em;
+
+            backdrop-filter: blur(10px);
+            border: 1px solid #cccccc28;
+            border-radius: 13px;
+
+            & img {
+                width:3em;
+            }
+
+            & figcaption {
+                & h4 {
+                    color:white;
+                    font-size:0.9em;
+                    text-align: center;
+                    text-overflow: ellipsis;
+                    overflow:hidden;
+
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    max-width:100%;
+                }
+
+                & .pollOptions {
+                    margin:0;
+                    padding-left:0;
+
+                    & li {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        font-size:0.8em;
+                        gap:0.8em;
+
+                        list-style-type: none;
+                        padding:0;
+                        color:white;
+
+                        &:not(:last-child) {
+                            margin-bottom: 0.5em;
+                        }
+
+                        &::before {
+                            content: '';
+                            display: inline-block;
+                            width: 0.8em;
+                            height:0.8em;
+                            border: 1px solid #ffffff;
+                            border-radius: 50%;
+                        }
+                    }
+
+                }
+                
+            }
+
+            & .pollVoteButton {
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                column-gap: 0.5em;
+
+                position:absolute;
+                bottom:0;
+                width:100%;
+                padding: 0.8em 0;
+                border-radius: 0 0 13px 13px;
+
+                font-size:0.8em;
+                text-decoration: none;
+                background-color: rgb(75, 75, 75);
+                backdrop-filter: blur(2px);
+
+                transition: background-color 0.3s linear;
+                
+                & img {
+                    width:2em;
+                }
+
+                & span {
+                    text-align: center;
+                    color:white;
+                }
+
+                &:hover {
+                    background-color: #e0e0e0ff;
+
+                    & span {
+                        color:black;
+                    }
+                    
+                    & img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+
+    }
+
+}
