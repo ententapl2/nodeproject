@@ -15,3 +15,12 @@
   -  ADMIN_PASSWORD | hasło konta administratora utworzonego przy pierwszym uruchomieniu aplikacji
 5. Uruchom serwer poprzez ``` npm run start ``` lub ```npm start```
 6. W celu całkowitego zresetowania bazy danych aplikacji najbezpieczniej usunąć plik bazy znajdujący się w katalogu ```src/data/db```
+
+# Notatka w celu odtworzenia historii
+
+#### Prace nad projektem były realizowane w osobnym prywatnym repozytorium. W celu odtworzenia historii projektu należy wykonać następujące kroki:
+
+1. Zmienić nazwę folderu znajdującego się w katalogu **project04**  ```.gitty``` na ```.git``` (np. za pomocą komendy ```mv .gitty .git```)
+2. Dodatkowo w celu łatwiejszego przeglądania historii można **jednorazowo** oczyścić drzewo zmian za pomocą ```git reset --hard```
+
+#### Jeśli wystąpią błędy podczas wykonywania omówionego wyżej procesu w wyniku czego odtworzenie historii nie powiedzie się, proszę o zgłoszenie tego problemu w zakładce ISSUES [na stronie repozytorium](https://github.com/ententapl2/nodeproject/issues) - udostępnię wtedy w ostateczności bezpośredni dostęp do oryginalnego, prywatnego repozytorium - ewentualnie można to wyjaśnić na lekcji
