@@ -1,0 +1,212 @@
+@font-face {
+    font-family: exo;
+    src: url(/fonts/Exo2.ttf);
+}
+
+@font-face {
+    font-family: Saira;
+    src: url(/fonts/SairaCondensed-Light.ttf);
+}
+
+* {
+    font-family: exo, Verdana, sans-serif;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(35, 35, 35);
+    min-height: 100%;
+}
+
+._headerNav {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1em;
+    width:100%;
+
+    & .__headerHome img {
+
+        width:55px;
+        height:auto;
+
+        @media only screen and (min-width:500px) {
+            & {
+                width:150px;
+                height:auto;
+            } 
+        }
+
+    }
+
+    & .__headerSearchBar {
+        display:flex;
+        justify-content: center;
+        min-width: 0;
+        flex:1;
+
+        opacity:0;
+        visibility:hidden;
+        transform:translateX(30px);
+        transition: all 0.4s ease;
+
+        &.active {
+            opacity:1;
+            visibility: visible;
+            transform: translateX(0);
+            transition-delay: 0s;
+        }
+
+        & input {
+            width:100%;
+            max-width:500px;
+            box-sizing: border-box;
+            padding: 1em;
+            background-color:rgba(255, 255, 255, 0);
+            color:white;
+
+            outline:none;
+            border: 1px solid #cccccc75;
+            border-radius: 13px;
+
+            &::-webkit-search-cancel-button {
+                -webkit-appearance: none;
+                height: 1.5em;
+                width: 1.5em;
+                border-radius: 13px;
+                background: url(/images/icons/clearSearchBar.svg) no-repeat 50% 50%;
+                background-size: contain;
+                filter:invert(1);
+                opacity:0.3;
+                cursor: pointer;
+                transition: opacity 0.31s linear;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            &:-webkit-autofill, 
+            &:focus, 
+            &:active {
+                box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset;
+                color:white !important;
+                -webkit-box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset !important;
+                -webkit-text-fill-color: white !important;
+                transition: background-color 0s, color 0s;
+            }
+            
+        }
+
+        @media only screen and (min-width:500px) {
+            & {
+                opacity:1;
+                visibility: visible;
+                transform: translateX(0);
+                transition-delay: 0s; 
+            }
+        }
+    }
+
+
+    & .__headerOptions {
+        display:flex;
+
+        & form,
+        & a,
+        & button {
+            display:contents;
+        }
+
+        & img {
+            width:50px;
+            height:auto;
+            cursor:pointer;
+        }
+
+        @media only screen and (min-width:500px) {
+            & #searchIconButton {
+                display:none;
+            }
+        }
+
+    }
+
+    & #userIconButton, 
+    & #headerIcon, 
+    & #logoutIconButton {
+        overflow: hidden;
+        max-width: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+
+
+        &.active {
+            max-width:initial;
+            opacity:1;
+            visibility:visible;
+            transform:translateY(0);
+            transition-delay: 0s;
+        }
+
+        @media only screen and (min-width:500px) {
+            & {
+                max-width:initial;
+                opacity:1;
+                visibility:visible;
+                transform:translateY(0);
+                transition-delay: 0s;
+            }                
+        }
+    }
+
+}
+
+
+
+
+main {
+    flex:1;
+    margin:8px;
+    display:flex;
+    flex-direction: column;
+}
+
+._footer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1rem;
+
+    box-sizing: border-box;
+    width:100%;
+    background-color: rgb(29, 29, 29); 
+
+    text-align: center;
+    color:white;
+
+    & a {
+        text-decoration: none;
+        font-size:1rem;
+        font-weight: bold;
+        color:white;
+    }
+
+    & h5 {
+        color:white;
+        font-size: 0.6rem;
+        margin:1rem;
+    }
+
+}
