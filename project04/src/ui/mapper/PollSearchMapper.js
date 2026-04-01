@@ -13,7 +13,7 @@ export default class PollSearchMapper {
 
     static pollSearchQueryToViewModel(polls, phrase, page, limit) {
         return new PollSearchViewModel(
-            polls.map(PollSearchMapper.pollQueryToPollViewModel), 
+            polls.map(PollSearchMapper.pollQueryToPollViewModel).slice(0, limit), 
             phrase,
             page,
             polls.length <= limit
