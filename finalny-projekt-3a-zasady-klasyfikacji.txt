@@ -1,0 +1,25 @@
+Praca projektowa: zasady klasyfikacji
+
+1. Temat projektu
+   Zebranie review, wprowadzenie poprawek do projektu oraz przygotowanie prezentacji i zaprezentowanie projektu z poprzedniego zadania.
+2. Mininalny zakres projektu
+   Zebranie review od przynajmniej dwóch innych uczniów.
+   Prezentacja projektu omawiająca:
+	- działanie aplikacji
+	- użyte technologie
+	- uwagi zebrane od review od nauczyciela i innych uczniów
+	- przedstawienie poprawek wprowadzonych w ramach review
+3. Termin oddania projektu:
+   Projekt zostanie wykonany i zaprezentowany do końca dnia 10.06.2026
+   Niezaprezentowanie projektu w terminie będzie skutkować oceną niedostateczną.
+4. Forma oddania projektu:
+   Prezentacja może mieć formę slajdów, nagranego materiału wideo lub prezentacji na żywo.
+   W każdym przypadku konieczne będzie omówienie punktów wymienionych w zakresie projektu
+5. Kryteria oceny
+   - Dokładność i jasność prezentacji działania projektu i omówienia
+   - Poziom doszlifowania UX i funkcjonalności aplikacji
+   - Szczegółowość i czytelność README: opis projektu, opis uruchomienia i konfiguracji projektu, dokumentacja obsługiwanych ścieżek, etc.
+   - Historia commitów w github pokazująca liniowy rozwój aplikacji
+   
+   Ocenie podlegają też recenzenci:
+   Każde review będzie ocenione pod względem szczegółowości i sensowności zgłoszonych uwag
