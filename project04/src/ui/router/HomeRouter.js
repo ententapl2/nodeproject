@@ -21,7 +21,7 @@ export default class HomeRouter {
             homeViewModel,
             scripts:[],
             styles:[{src:'/styles/home.css'}, {src:'/styles/components/homeAnimation.css'}, {src:'/styles/components/gallery.css'}]
-        })
+        });
     }
 
     getHandler(req, res) {
@@ -35,7 +35,7 @@ export default class HomeRouter {
             mostActiveUsers
         );
 
-        this.render(req, res, homeViewModel)
+        this.render(req, res, homeViewModel);
     }
 
 }

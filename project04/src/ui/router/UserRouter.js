@@ -21,7 +21,7 @@ export default class UserRouter {
             userViewModel,
             scripts:[{type:'text/javascript', src:'/scripts/user.js'}],
             styles:[{src:'/styles/user.css'}, {src:'/styles/components/gallery.css'}]
-        })
+        });
     }
 
     getHandler(req, res) {

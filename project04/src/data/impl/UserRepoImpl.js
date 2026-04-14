@@ -20,7 +20,7 @@ export default class UserRepoImpl extends UserRepo {
             :name,
             :password
         );
-        `
+        `;
         this.#DB.execute(sql, {
             id:user.id,
             name:user.name,
@@ -35,7 +35,7 @@ export default class UserRepoImpl extends UserRepo {
             user
         WHERE 
             id = :id
-        `
+        `;
         this.#DB.execute(sql, {
             id: userId
         });
@@ -50,7 +50,7 @@ export default class UserRepoImpl extends UserRepo {
             password = :password
         WHERE 
             user.id = :id; 
-        `
+        `;
         this.#DB.execute(sql, {
             id: user.id,
             name: user.name,

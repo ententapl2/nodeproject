@@ -24,3 +24,15 @@
 
 1. ~~Wyszukiwanie ankiet~~
 2. ~~Opisy ankiet~~
+
+***
+
+# Deadline: czerwiec 2026
+
+## Wymagania własne
+
+1. ~~Zmienić kolor przy poll~~
+2. ~~Poprawić pattern i title przy formularzu logowania/rejestracji~~
+3. ~~Przenieść logikę aplikacyjną z Routerów do serwisów~~
+4. ~~Przejść z bcrypt na argon~~
+5. ~~Dane testowe generuj w locie~~

@@ -4,11 +4,10 @@ import methodOverride from 'method-override';
 import path from "path";
 import { fileURLToPath } from "url";
 import RegisterRouter from "./ui/router/RegisterRouter.js";
-import RegisterService from "./app/service/RegisterService.js";
 import UserRepoImpl from "./data/impl/UserRepoImpl.js";
 import UserQueryRepoImpl from "./data/query/UserQueryRepoImpl.js";
 import Database from "./data/db/Database.js";
-import LoginService from "./app/service/LoginService.js";
+import AuthService from "./app/service/AuthService.js";
 import LoginRouter from "./ui/router/LoginRouter.js";
 import UserService from "./app/service/UserService.js";
 import PollService from "./app/service/PollService.js";
@@ -27,16 +26,19 @@ import csurf from "csurf";
 import SessionStoreImpl from "./data/impl/SessionStoreImpl.js";
 import Seeder from "./data/db/Seeder.js";
 
+const pepper = process.env.PEPPER;
 const port = process.env.PORT;
 const __dirname =  path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const db = new Database(process.env.DB);
-const seeder = new Seeder(db);
-seeder.seedRoles([{id: 1, name: 'admin'}]);
-seeder.seedUsers([{name: process.env.ADMIN_NAME, password:process.env.ADMIN_PASSWORD, roles:[{id:1}]}]);
-const sessionStore = new SessionStoreImpl(db);
 
+const seeder = new Seeder(db, pepper);
+seeder.seedRoles([{id: 1, name: 'admin'}]);
+seeder.seedUsers([{name: process.env.ADMIN_NAME, roles:[{id:1}]}]);
+
+
+const sessionStore = new SessionStoreImpl(db);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'ui', 'view'));
 app.use(express.static(path.join(__dirname, 'ui', 'public')));
@@ -63,14 +65,13 @@ const pollRepo = new PollRepoImpl(db);
 
 const userService = new UserService(userQueryRepo);
 const unitOfWork = new UnitOfWorkImpl(db);
-const pollService = new PollService(pollQueryRepo, pollRepo, unitOfWork)
+const pollService = new PollService(pollQueryRepo, pollRepo, unitOfWork);
 const homeRouter = new HomeRouter(pollService, userService);
 
-const registerService = new RegisterService(userRepo, userQueryRepo);
-const registerRouter = new RegisterRouter(registerService);
+const authService = new AuthService(userRepo, userQueryRepo, pepper);
+const registerRouter = new RegisterRouter(authService);
+const loginRouter = new LoginRouter(authService);
 
-const loginService = new LoginService(userQueryRepo);
-const loginRouter = new LoginRouter(loginService);
 const pollRouter = new PollRouter(pollService);
 const userRouter = new UserRouter(pollService, userService);
 const newRouter = new NewRouter(pollService);
@@ -83,7 +84,7 @@ app.post('/register', csrfHelmet, registerRouter.postHandler);
 
 app.get('/login', csrfHelmet, loginRouter.getHandler);
 app.post('/login', csrfHelmet, loginRouter.postHandler);
-app.post('/logout', loginRouter.logoutGetHandler)
+app.post('/logout', loginRouter.logoutGetHandler);
 
 app.get('/', homeRouter.getHandler);
 app.get('/poll', pollSearchRouter.getHandler);
@@ -102,4 +103,4 @@ app.use(errorRouter.getHandler);
 
 app.listen(port, function() {
     console.log(`Server listening on http://localhost:${port}`);
-})
+});

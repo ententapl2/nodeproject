@@ -8,7 +8,7 @@ export default class PollSearchMapper {
             poll.id,
             poll.question,
             poll.options
-        )
+        );
     }
 
     static pollSearchQueryToViewModel(polls, phrase, page, limit) {

@@ -7,7 +7,7 @@ export default class UserMapper {
             poll.id,
             poll.question,
             poll.options
-        ))
+        ));
     }
 
     static userQueryToUserViewModel(userQuery, userPollsQuery) {

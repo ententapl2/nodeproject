@@ -23,21 +23,23 @@ export default class PollRouter {
                 id:(req.session.userId ?? null),
                 name:(req.session.userName ?? null)
             }
-        })
+        });
     }
 
     getHandler(req, res) {
-        const userId = req.session.userId;
-        const userRoles = req.session?.userRoles ?? []; 
-        const pollId = req.params.pollId;
+        const userId = parseInt(req.session.userId, 10);
+        const pollId = parseInt(req.params.pollId, 10);
+        const userRoles = req.session.userRoles ?? [];
         if (!pollId) throw 404;
         try {
-            const page = (req.query.page ?? 1);
-            const poll = this.#pollService.loadPoll(pollId, 10, ((page-1)*10));
+            const limit = 10;
+            const page = Math.max(1, parseInt(req.query.page, 10) || 1);  
             
-            if (!Object.keys(poll?.votes).length && page !== 1) throw new NotFoundError('Brak kolejnych stron')
-            const pollViewModel = PollMapper.pollQueryToPollViewModel(poll, userId, page, userRoles);
-            this.render(req, res, pollViewModel);
+            const poll = this.#pollService.loadPoll(pollId, limit, page);
+            const hasVoted = this.#pollService.loadHasVoted(pollId, userId);
+
+            const pollViewModel = PollMapper.pollQueryToPollViewModel(poll, userId, hasVoted, page, limit, userRoles);
+            return this.render(req, res, pollViewModel);
         } catch (e) {
             if (e instanceof NotFoundError) throw 404;
             else throw 500;

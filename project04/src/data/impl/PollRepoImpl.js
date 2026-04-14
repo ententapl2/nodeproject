@@ -24,7 +24,7 @@ export default class PollRepoImpl extends PollRepo {
             :authorId,
             :publicationDate 
         );
-        `
+        `;
         return this.#DB.execute(sql, {
             id: poll.id,
             question: poll.name,
@@ -41,7 +41,7 @@ export default class PollRepoImpl extends PollRepo {
             poll 
         WHERE 
             poll.id = :id
-        `
+        `;
         this.#DB.execute(sql, {
             id: pollId
         });
@@ -58,7 +58,7 @@ export default class PollRepoImpl extends PollRepo {
             publicationDate = :publicationDate
         WHERE 
             poll.id = :id;
-        `
+        `;
         this.#DB.execute(sql, {
             id: poll.id,
             question: poll.name,
@@ -79,7 +79,7 @@ export default class PollRepoImpl extends PollRepo {
             :pollId,
             :name
         );
-        `
+        `;
         this.#DB.execute(sql, {
             id:null,
             pollId:pollId,
@@ -95,7 +95,7 @@ export default class PollRepoImpl extends PollRepo {
         WHERE 
             option.id = :id AND 
             option.pollId = :pollId 
-        `
+        `;
         this.#DB.execute(sql, {
             id: optionId,
             optionName: optionName,
@@ -110,13 +110,13 @@ export default class PollRepoImpl extends PollRepo {
             option  
         WHERE 
             option.id = :id
-        `
+        `;
         this.#DB.execute(sql, {
             id: optionId
         });  
     }
 
-    addVote(pollId, userId, optionId) {
+    addVote(pollId, userId, optionId, publicationDate) {
         const sql = `
         INSERT INTO vote(
             pollId, 
@@ -127,13 +127,14 @@ export default class PollRepoImpl extends PollRepo {
             :pollId,
             :userId,
             :optionId,
-            strftime('%s', 'now')
+            :publicationDate 
         );
-        `
+        `;
         this.#DB.execute(sql, {
             pollId:pollId,
             userId:userId,
-            optionId:optionId
+            optionId:optionId, 
+            publicationDate: publicationDate
         });
     }
 

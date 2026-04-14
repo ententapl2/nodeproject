@@ -19,7 +19,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
             user 
         WHERE 
             user.id = :id;
-        `
+        `;
         const query = this.#DB.query(sql, {
             id:userId
         });
@@ -36,7 +36,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
             user 
         WHERE 
             user.name = :name;
-        `
+        `;
         const query = this.#DB.query(sql, {
             name:name
         });
@@ -58,7 +58,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
         DESC 
         LIMIT :limit 
         OFFSET :offset;
-        `
+        `;
         const query = this.#DB.query(sql, {
             limit:limit,
             offset:offset
@@ -82,7 +82,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
         DESC 
         LIMIT :limit 
         OFFSET :offset;
-        `
+        `;
         const query = this.#DB.query(sql, {
             limit:limit,
             offset:offset
@@ -104,7 +104,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
         LEFT JOIN role ON role.id = userRole.roleId  
         WHERE 
             user.name = :name;
-        `
+        `;
         const query = this.#DB.query(sql, {
             name:name
         });
@@ -131,7 +131,7 @@ export default class UserQueryRepoImpl extends UserQueryRepo {
         WHERE 
             user.id = :id;
 
-        `
+        `;
         const query = this.#DB.query(sql, {
             id:userId
         });

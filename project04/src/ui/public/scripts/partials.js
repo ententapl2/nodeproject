@@ -14,7 +14,7 @@ function handleSearchBarToggle() {
             return;
         }
 
-        searchBar.classList.remove('active') 
+        searchBar.classList.remove('active'); 
         headerIcon.classList.add('active');
         userIcon.classList.add('active');
         logoutIcon?.classList?.add('active');

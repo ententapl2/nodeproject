@@ -6,7 +6,7 @@ export default class RegisterMapper {
         return new RegisterViewModel(
             errors,
             cache
-        )
+        );
     }
 
 }

@@ -12,7 +12,7 @@ export default class PollQueryMapper {
             if (!votes[optionId]) votes[optionId] = [];
             votes[optionId].push({
                 user: new UserQuery(vote['user.id'], vote['user.name']),
-                publicationDate: new Date(vote['vote.publicationDate']).toLocaleDateString()
+                publicationDate: new Date(vote['vote.publicationDate']).toLocaleDateString('pl-PL', {day:'2-digit', month:'2-digit', year:'numeric'})
             });
         }
 
@@ -52,14 +52,14 @@ export default class PollQueryMapper {
                 polls[pollId] = {
                     ...row,
                     options:[]
-                }
+                };
             }
 
             if (optionId && !polls[pollId].options.some(o => o.id === optionId)) {
                 polls[pollId].options.push({
                     id: optionId,
                     name:optionName
-                })
+                });
             }
         }
 
@@ -71,10 +71,17 @@ export default class PollQueryMapper {
                 row['author.id'],
                 row['author.name']
             ),
-            new Date(row['poll.publicationDate']).toLocaleDateString(),
+            new Date(row['poll.publicationDate']).toLocaleDateString('pl-PL', {day:'2-digit', month:'2-digit', year:'numeric'}),
             row['options']
         ));
 
+    }
+
+    static optionEntityOptionObject(query) {
+        return query.length !== 0 ? ({
+            id: query[0]['option.id'],
+            name: query[0]['option.name']
+        }) : null; 
     }
 
 }

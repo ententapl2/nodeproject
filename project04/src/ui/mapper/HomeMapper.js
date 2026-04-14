@@ -22,7 +22,7 @@ export default class HomeMapper {
             poll.id,
             poll.question,
             poll.options
-        )
+        );
     }
 
     static homeQueryToViewModel(
@@ -34,7 +34,7 @@ export default class HomeMapper {
             mostPopularPolls.map(HomeMapper.pollQueryToPollViewModel),
             recentPolls.map(HomeMapper.pollQueryToPollViewModel),
             mostActiveUsers.map(HomeMapper.userQueryToMostActiveUserViewModel)
-        )
+        );
     }
 
 }

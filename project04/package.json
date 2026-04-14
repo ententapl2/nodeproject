@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
+    "prestart": "node src/boot.js",
     "start": "node --env-file=src/.env src/index.js ",
-    "dev": "node --env-file=src/.env src/index.js --watch src"
+    "dev": "node src/boot.js && node --env-file=src/.env src/index.js --watch src"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/ententapl2/Umfragen#readme",
   "dependencies": {
+    "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "csurf": "^1.11.0",

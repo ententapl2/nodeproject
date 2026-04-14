@@ -27,16 +27,12 @@ export default class PollSearchRouter {
     getHandler(req, res) {
         try {
             const phrase = req.query?.search ?? '';
-            const page = parseInt(req.query?.page ?? 1);
+            const page = Math.max(1, parseInt(req.query.page, 10) || 1);
             const limit = 20;
 
-            if (isNaN(page) || page <=0 ) throw new NotFoundError('Nieprawidłowa liczba strony');
-            if (typeof phrase !== 'string' || phrase.length === 0) throw new InvalidInputError('Nieprawidłowe hasło wyszukiwania');
-            const polls = this.#pollService.loadSearchSummaries(phrase, limit, ((page-1)*limit));
-            if (polls.length === 0) throw new NotFoundError('Nie znaleziono');
-
+            const polls = this.#pollService.loadSearchSummaries(phrase, limit, page);
             const pollSearchViewModel = PollSearchMapper.pollSearchQueryToViewModel(polls, phrase, page, limit);
-            this.render(req, res, pollSearchViewModel);
+            return this.render(req, res, pollSearchViewModel);
         } catch (e) {
             if (e instanceof NotFoundError) throw 404;
             else if (e instanceof InvalidInputError) throw 400;

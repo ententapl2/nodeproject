@@ -46,7 +46,7 @@
         <% }) %>
 
             <div class="___seeMore">
-            <details>
+            <details <%= pollViewModel.details.page !== 1 ? 'open' : '' %>>
                 <summary>SZCZEGÓŁY</summary>
                 <table class="____userVotes">
 

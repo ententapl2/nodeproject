@@ -27,7 +27,7 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
         LEFT JOIN option ON option.pollId = poll.id 
         WHERE 
             poll.id = :id;
-        `
+        `;
         const votesSql = `
         SELECT 
             vote.pollId AS [vote.pollId], 
@@ -42,7 +42,7 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
             vote.pollId = :pollId 
         LIMIT :limit 
         OFFSET :offset;
-        `
+        `;
 
         const pollQuery = this.#DB.query(pollSql, {
             id:pollId
@@ -55,6 +55,25 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
         return PollQueryMapper.pollEntityToPoll(pollQuery, votesQuery);
 
 
+    }
+
+    getUserVoteFromPoll(pollId, userId) {
+        const sql = `
+        SELECT 
+            option.id AS [option.id], 
+            option.name AS [option.name] 
+        FROM 
+            vote 
+        JOIN option ON option.id = vote.optionId 
+        WHERE 
+            vote.pollId = :pollId AND  
+            vote.userId = :userId;
+        `;
+        const query = this.#DB.query(sql, {
+            pollId: pollId, 
+            userId: userId 
+        });
+        return PollQueryMapper.optionEntityOptionObject(query); 
     }
 
     getPollsSummaryByLatestDate(limit=10, offest=0) {
@@ -83,7 +102,7 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
         JOIN poll ON poll.id = latestPoll.id 
         LEFT JOIN user ON user.id = poll.authorId 
         LEFT JOIN option ON option.pollId = poll.id;
-        `
+        `;
         const query = this.#DB.query(sql, {
             limit:limit,
             offset:offest
@@ -121,7 +140,7 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
         JOIN poll ON poll.id = latestPoll.id
         LEFT JOIN user ON user.id = poll.authorId 
         LEFT JOIN option ON option.pollId = poll.id;
-        `
+        `;
         const query = this.#DB.query(sql, {
             limit:limit,
             offset:offset
@@ -191,7 +210,7 @@ export default class PollQueryRepoImpl extends PollQueryRepo {
         JOIN poll ON poll.id = userPoll.id 
         LEFT JOIN user ON user.id = poll.authorId 
         LEFT JOIN option ON option.pollId = poll.id;
-        `
+        `;
         const query = this.#DB.query(sql, {
             authorId: userId,
             limit: limit,

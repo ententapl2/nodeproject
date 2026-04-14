@@ -1,0 +1,6 @@
+*.sqlite
+node_modules/
+src/data/db/test.db
+jsconfig.json
+Umfragen.db
+*.db

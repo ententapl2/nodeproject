@@ -15,6 +15,7 @@ export default defineConfig([
       }
     },
     rules: {
+      "semi":[2, "always"],
       "no-unused-vars": "off",
       "no-unused-private-class-members":"off"
     },

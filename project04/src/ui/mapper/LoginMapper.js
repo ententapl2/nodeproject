@@ -6,7 +6,7 @@ export default class LoginMapper {
         return new LoginViewModel(
             errors,
             cache
-        )
+        );
     }
 
 }

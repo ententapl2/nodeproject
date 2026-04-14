@@ -7,8 +7,8 @@ export default class UserService {
     }
 
     loadDashobardSummaries() {
-        const users = this.#userQueryRepo.getUsersByMostPolls()
-        return users
+        const users = this.#userQueryRepo.getUsersByMostPolls();
+        return users;
     }
 
     loadStats(userId) {

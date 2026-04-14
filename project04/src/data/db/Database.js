@@ -38,7 +38,7 @@ export default class Database {
 
     query(sql, params={}) {
         const query = this.#db.prepare(sql).all(params);
-        return query
+        return query;
     }
 
 

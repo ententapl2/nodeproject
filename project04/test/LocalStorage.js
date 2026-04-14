@@ -11,7 +11,7 @@ import PollQueryMapper from "../src/data/mapper/PollQueryMapper.js";
 function ersteTest() {
 
     const db = new Database('test.db');
-    db.execute("DELETE FROM user;")
+    db.execute("DELETE FROM user;");
     db.execute("DELETE FROM poll;");
 
     const impl =  new UserRepoImpl(db);
@@ -51,7 +51,7 @@ function zweiteTest() {
         [],
         [],
         Date.now()
-    ))
+    ));
     db.execute("INSERT INTO option VALUES(1, '1', 'opcja');");
 
     const poll = impl.getPoll(1);
@@ -89,7 +89,7 @@ function zweiteTest() {
             poll.publicationDate 
         DESC, 
             option.id 
-        ASC;`
+        ASC;`;
     console.log(db.query(s));
     console.log('f');
 
@@ -98,7 +98,7 @@ function zweiteTest() {
 function dritteTest() {
 
     const db = new Database('test.db');
-    db.execute("DELETE FROM user;")
+    db.execute("DELETE FROM user;");
     db.execute("DELETE FROM poll;");
 
     const userImpl =  new UserRepoImpl(db);
@@ -255,5 +255,12 @@ function neuneTest() {
     const t = PollQueryMapper.pollEntitiestoPollsSummary(query);
 }
 
+function zehneTest() {
+    const db = new Database('Umfragen.db');
+    const pollQueryRepo = new PollQueryRepoImpl(db);
+    const r = pollQueryRepo.getHasVoted(100, 42);
+    console.log(r); 
+}
 
-it('poll database test', neuneTest);
+
+it('poll database test', zehneTest);

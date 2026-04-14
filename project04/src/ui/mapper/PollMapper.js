@@ -7,7 +7,7 @@ export default class PollMapper {
         return Object.values(pollQuery.votes)
             .some(votesArray => votesArray
                 .some(vote => vote.user.id === authorId)
-            )
+            );
     }
 
     static pollQueryToOptions(pollQuery) {
@@ -18,10 +18,10 @@ export default class PollMapper {
                 Object.values(pollQuery.votes).flat().length) * 
                 100
             ).toFixed(2))
-        }))
+        }));
     }
 
-    static pollQueryToVotes(pollQuery) {
+    static pollQueryToVotes(pollQuery, limit) {
         return pollQuery.options.flatMap((option, i) => (pollQuery.votes[option.id] ?? []).map(
             vote => ({
                 userId: vote.user.id,
@@ -29,19 +29,19 @@ export default class PollMapper {
                 option: i + 1,
                 optionId: Number(option.id)
             })
-        ));
+        )).slice(0, limit);
     }
 
-    static pollQueryToPollDetails(pollQuery, authorId, page, authorRoles) {
+    static pollQueryToPollDetails(pollQuery, authorId, hasVoted, page, limit, authorRoles) {
         return new PollDetailsModel(
             pollQuery.author.id === authorId || authorRoles.some(role => role.name === 'admin'),
             page,
-            Object.entries(pollQuery.votes ?? {}).length <= 10,
-            PollMapper.pollQueryToHasVoted(pollQuery, authorId)
+            Object.values(pollQuery.votes).flat().length <= limit,
+            hasVoted
         );
     }
 
-    static pollQueryToPollViewModel(pollQuery, authorId, page, authorRoles) {
+    static pollQueryToPollViewModel(pollQuery, authorId, hasVoted, page, limit, authorRoles) {
         return new PollViewModel(
             pollQuery.id,
             pollQuery.question,
@@ -51,9 +51,9 @@ export default class PollMapper {
             pollQuery.publicationDate,
             PollMapper.pollQueryToOptions(pollQuery),
             PollMapper.pollQueryToHasVoted(pollQuery),
-            PollMapper.pollQueryToVotes(pollQuery),
-            PollMapper.pollQueryToPollDetails(pollQuery, authorId, page, authorRoles) 
-        )
+            PollMapper.pollQueryToVotes(pollQuery, limit),
+            PollMapper.pollQueryToPollDetails(pollQuery, authorId, hasVoted, page, limit, authorRoles) 
+        );
     }
 
 
