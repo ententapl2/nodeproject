@@ -35,7 +35,7 @@ export default class PollRouter {
             const page = (req.query.page ?? 1);
             const poll = this.#pollService.loadPoll(pollId, 10, ((page-1)*10));
             
-            if (!Object.keys(poll?.votes).length && page !== 1) throw NotFoundError('Brak kolejnych stron')
+            if (!Object.keys(poll?.votes).length && page !== 1) throw new NotFoundError('Brak kolejnych stron')
             const pollViewModel = PollMapper.pollQueryToPollViewModel(poll, userId, page, userRoles);
             this.render(req, res, pollViewModel);
         } catch (e) {
