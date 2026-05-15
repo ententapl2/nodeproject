@@ -253,7 +253,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical; 
 
-    color:white;
+    color:var(--textColor);
     word-break: break-all;
     text-overflow: ellipsis;
     text-decoration: none;
