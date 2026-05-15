@@ -1,3 +1,5 @@
+@import './themes.css';
+
 @font-face {
     font-family: exo;
     src: url(/fonts/Exo2.ttf);
@@ -21,7 +23,7 @@ html, body {
 body {
     display:flex;
     flex-direction: column;
-    background-color: rgb(35, 35, 35);
+    background-color: var(--backgroundColor);
     min-height: 100%;
 }
 
@@ -71,11 +73,11 @@ body {
             max-width:500px;
             box-sizing: border-box;
             padding: 1em;
-            background-color:rgba(255, 255, 255, 0);
-            color:white;
+            background-color:var(--backgroundColor);
+            color:var(--textColor);
 
             outline:none;
-            border: 1px solid #cccccc75;
+            border: 1px solid var(--borderColor);
             border-radius: 13px;
 
             &::-webkit-search-cancel-button {
@@ -98,10 +100,10 @@ body {
             &:-webkit-autofill, 
             &:focus, 
             &:active {
-                box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset;
-                color:white !important;
-                -webkit-box-shadow: 0 0 0px 1000px rgb(29, 29, 29) inset !important;
-                -webkit-text-fill-color: white !important;
+                box-shadow: 0 0 0px 1000px var(--backgroundColor) inset;
+                color:var(--textColor) !important;
+                -webkit-box-shadow: 0 0 0px 1000px var(--backgroundColor) inset !important;
+                -webkit-text-fill-color: var(--textColor) !important;
                 transition: background-color 0s, color 0s;
             }
             
@@ -191,20 +193,20 @@ main {
 
     box-sizing: border-box;
     width:100%;
-    background-color: rgb(29, 29, 29); 
+    background-color: var(--footerColor);
 
     text-align: center;
-    color:white;
+    color:var(--textColor);
 
     & a {
         text-decoration: none;
         font-size:1rem;
         font-weight: bold;
-        color:white;
+        color:var(--textColor);
     }
 
     & h5 {
-        color:white;
+        color:var(--textColor);
         font-size: 0.6rem;
         margin:1rem;
     }

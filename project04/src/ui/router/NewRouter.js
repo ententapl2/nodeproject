@@ -1,27 +1,21 @@
 import NewMapper from "../mapper/NewMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class NewRouter {
+export default class NewRouter extends BaseRouter {
 
     #pollService;
 
     constructor(pollService) {
+        super(
+            'new', 
+            [new ExternalScript('/scripts/new.js', 'text/javascript')],
+            [new ExternalScript('/styles/new.css', 'text/css')],
+            true
+        );
+
         this.#pollService = pollService;
         this.getHandler = this.getHandler.bind(this);
         this.postHandler = this.postHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, newViewModel) {
-        res.render('new', {
-            account: {
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null),
-                csrf: req.csrfToken()
-            },
-            newViewModel,
-            scripts:[{type:'text/javascript', src:'/scripts/new.js'}],
-            styles:[{src:'/styles/new.css'}]
-        });
     }
 
     getHandler(req, res) {

@@ -2,7 +2,7 @@
     margin-bottom:3em;
 
     & h1 {
-        color:rgb(255, 166, 0);
+        color:var(--headerColor);
         font-size: clamp(2rem, 10vw, 3rem);
         font-weight:bolder;
         word-break: break-all;
@@ -41,7 +41,7 @@ main {
     & a[data-disabled] img {
         width:2em;
         cursor:pointer;
-        background-color:rgba(0, 0, 0, 0.489);
+        background-color:var(--disabledButtonColor);
         padding:0.5em;
         border-radius:13px;
         filter:brightness(50%);
@@ -54,7 +54,7 @@ main {
     & data {
         font-weight: bold;
         font-size: 1.5em;
-        color:rgb(255, 166, 0);
+        color:var(--headerColor);
     }
 
 

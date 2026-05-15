@@ -51,7 +51,7 @@
 
             & h1 {
             
-                color:rgb(255, 166, 0);
+                color:var(--headerColor);
                 font-size: clamp(2rem, 10vw, 3rem);
                 font-weight:bolder;
                 word-break: break-all;
@@ -61,7 +61,7 @@
         }
 
         & .____description h2 {
-            color:rgba(250, 223, 174, 1);
+            color:var(--slightHeaderColor);
             font-size: 0.9rem;
             margin: 0.5rem 0;
         }
@@ -76,7 +76,7 @@
         flex-direction: row;
         align-items: center;
         column-gap: 0.2em;
-        color: white;
+        color: var(--textColor);
 
         & .____infoLabel {
             display: flex;
@@ -93,12 +93,12 @@
             & figcaption {
                 font-size:0.8em;
                 font-weight: bold;
-                color:white;
+                color:var(--textColor);
             }
 
             & a,
             & ._____vote a {
-                color:white;
+                color:var(--textColor);
                 text-decoration: none;
                 border-bottom: 1px solid transparent;
                 transition: border-bottom 0.31s linear;
@@ -106,7 +106,7 @@
 
             & a:hover,
             & ._____vote a:hover {
-                border-bottom-color: white;
+                border-bottom-color: var(--textColor);
             }
 
         }
@@ -143,9 +143,9 @@
         position: relative;
         box-sizing: border-box;
         padding:1.5em;
-        border: 1px solid rgb(255, 166, 0);
+        border: 1px solid var(--headerColor);
         border-radius: 100px;
-        background-color: rgba(0, 0, 0, 0.102);
+        background-color: var(---backgroundColor);
 
         & ._____optionProgress {
             position:absolute;
@@ -160,7 +160,7 @@
         & ._____optionDescription,
         & ._____optionProgressNumeric {
             z-index:1;
-            color:white;
+            color:var(--textColor);
             font-weight: bold;
         }
 
@@ -187,12 +187,12 @@
             }
 
             & summary {
-                color:black;
+                color:var(--buttonHoverColor);
                 text-transform: uppercase;
                 font-weight: bold;
 
                 width:fit-content;
-                background-color: rgb(255, 166, 0);
+                background-color: var(--headerColor);
                 padding:0.8em;
                 margin:0.4em;
                 box-sizing: border-box;
@@ -218,7 +218,7 @@
 
                 & tr,
                 & th {
-                    color:white;
+                    color:var(--textColor);
                 }
 
             }
@@ -237,7 +237,7 @@
                     display: -webkit-box;
                     -webkit-box-orient: vertical; 
 
-                    color:white;
+                    color:var(--textColor);
                     word-break: break-all;
                     text-overflow: ellipsis;
                     overflow: hidden;  
@@ -262,8 +262,8 @@
                     min-width:2rem;
                     min-height:2rem;
                     border-radius: 50%;
-                    background-color: rgb(35, 35, 35);
-                    color:white;
+                    background-color: var(--backgroundColor);
+                    color:var(--textColor);
                     font-weight: bold;
                     font-size:1rem;
 
@@ -301,7 +301,7 @@
                 & a[data-disabled] img {
                     width:2em;
                     cursor:pointer;
-                    background-color:rgba(0, 0, 0, 0.489);
+                    background-color:var(--disabledButtonColor);
                     padding:0.5em;
                     border-radius:13px;
                     filter:brightness(50%);
@@ -314,7 +314,7 @@
                 & data {
                     font-weight: bold;
                     font-size: 1.5em;
-                    color:rgb(255, 166, 0);
+                    color:var(--headerColor);
                 }
 
 

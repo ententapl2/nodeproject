@@ -1,31 +1,23 @@
 import AuthenticationError from '../../app/error/AuthenticationError.js';
-import ConflictError from '../../app/error/ConflictError.js';
-import InvalidInputError from '../../app/error/InvalidInputError.js';
 import NotFoundError from '../../app/error/NotFoundError.js';
 import ModifyMapper from '../mapper/ModifyMapper.js';
+import BaseRouter, { ExternalScript } from './BaseRouter.js';
 
-export default class ModifyRouter {
+export default class ModifyRouter extends BaseRouter {
 
     #pollService;
 
     constructor(pollService) {
+        super(
+            'modify',
+            [new ExternalScript('/scripts/modify.js', 'text/javascript')],
+            [new ExternalScript('/styles/new.css', 'text/css')],
+            true
+        );
+
         this.#pollService = pollService;
         this.getHandler = this.getHandler.bind(this);
         this.putHandler = this.putHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, modifyViewModel) {
-        res.render('modify', {
-            account: {
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null),
-                csrf: req.csrfToken()
-            },
-            modifyViewModel,
-            scripts:[{src:'/scripts/modify.js', type:'text/javascript'}],
-            styles:[{src:'/styles/new.css'}]
-        });
     }
     
     getHandler(req, res) {
@@ -35,7 +27,7 @@ export default class ModifyRouter {
         if (!userId) return res.redirect('/login');
 
         try {
-            const pollQuery = this.#pollService.loadPollForModifications(pollId, 0, 0, userId, userRoles);
+            const pollQuery = this.#pollService.loadPollForModifications(pollId, userId, userRoles);
             return this.render(req, res, ModifyMapper.validationToModifyViewModel(
                 [], 
                 ModifyMapper.pollQueryToCache(pollQuery), 

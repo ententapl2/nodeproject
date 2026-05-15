@@ -2,7 +2,7 @@
     margin-bottom:3em;
 
     & h1 {
-        color:rgb(255, 166, 0);
+        color:var(--headerColor);
         font-size: clamp(2rem, 10vw, 4rem);
         font-weight:bolder;
         word-break: break-all;
@@ -29,9 +29,9 @@ a {
     height:12rem;
     margin:0.2em;
     padding:0.2em;
-
+ 
     backdrop-filter: blur(10px);
-    border: 1px solid #cccccc28;
+    border: 1px solid var(--borderColor);
     border-radius: 13px;
 
     transition: transform 0.31s linear;
@@ -44,7 +44,7 @@ a {
         width:6rem;
         height:6rem;
         border-radius: 50%;
-        background-color: rgb(35, 35, 35);
+        background-color: var(--backgroundColor);
         color:white;
         font-weight: bold;
         font-size:2rem;
@@ -59,7 +59,7 @@ a {
     }
 
     & figcaption {  
-        color:white;
+        color:var(--textColor);
         font-size:1em;
         text-align: center;
         text-overflow: ellipsis;

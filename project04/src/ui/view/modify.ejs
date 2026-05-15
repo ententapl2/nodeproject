@@ -5,11 +5,11 @@
     <h1 class="__title">MODYFIKUJ ANKIETĘ</h1>
 
     <div class="notifications">
-        <% if (modifyViewModel.errors.length !== 0) { %>
+        <% if (viewModel.errors.length !== 0) { %>
         <div class="notification">
             Błędy w trakcie tworzenia ankiety
             <ul>
-            <% modifyViewModel.errors.forEach(error => { %>
+            <% viewModel.errors.forEach(error => { %>
                 <li><%= error %></li>
             <% }) %>
             </ul>
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <form action="/poll/<%= modifyViewModel.pollId %>?_method=PUT" id="form" method="POST">
+    <form action="/poll/<%= viewModel.pollId %>?_method=PUT" id="form" method="POST">
 
         <textarea 
             type="text"
@@ -31,7 +31,7 @@
             maxlength="500"
             title="Maksymalna długość pytania to 500 znaków"
             required 
-        ><%= Object.keys(modifyViewModel.cache).length !== 0 ? modifyViewModel.cache.question : '' %></textarea>
+        ><%= Object.keys(viewModel.cache).length !== 0 ? viewModel.cache.question : '' %></textarea>
 
         
         <textarea 
@@ -40,11 +40,11 @@
             name="description" 
             maxlength="800" 
             title="Maksymalna długość opisu ankiety to 800 znaków" 
-        ><%= Object.keys(modifyViewModel.cache).length !== 0 ? modifyViewModel.cache.description : '' %></textarea>
+        ><%= Object.keys(viewModel.cache).length !== 0 ? viewModel.cache.description : '' %></textarea>
 
 
         <div id="options">
-            <% if (Object.keys(modifyViewModel.cache).length !== 0) { modifyViewModel.cache.options.forEach((option, index) => { %>
+            <% if (Object.keys(viewModel.cache).length !== 0) { viewModel.cache.options.forEach((option, index) => { %>
                 <div class="option">
                     <input type="hidden" name="oldOption[<%= option.id %>][id]" value="<%= option.id %>">
                     <input 

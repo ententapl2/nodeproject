@@ -1,7 +1,7 @@
-<%- include('./partials/head.ejs', {scripts, styles, title:errorViewModel.code}) %>
+<%- include('./partials/head.ejs', {scripts, styles, title:viewModel.code}) %>
 
 <main>
-    <h1><%= errorViewModel.message %></h1>
+    <h1><%= viewModel.message %></h1>
     <a href="/" id="homeButton">Powrót na stronę głównę</a>
 </main>
 

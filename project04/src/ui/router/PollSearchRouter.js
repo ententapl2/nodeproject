@@ -1,27 +1,24 @@
 import InvalidInputError from "../../app/error/InvalidInputError.js";
 import NotFoundError from "../../app/error/NotFoundError.js";
 import PollSearchMapper from "../mapper/PollSearchMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class PollSearchRouter {
+export default class PollSearchRouter extends BaseRouter {
 
     #pollService;
 
     constructor(pollService) {
+        super(
+            'pollSearch',
+            [],
+            [
+                new ExternalScript('/styles/pollSearch.css', 'text/css'),
+                new ExternalScript('/styles/components/gallery.css', 'text/css')
+            ]
+        );
+
         this.#pollService = pollService;
         this.getHandler = this.getHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, pollSearchViewModel) {
-        res.render('pollSearch', {
-        scripts:[],
-        styles:[{src:'/styles/pollSearch.css'}, {src:'/styles/components/gallery.css'}],
-        account: {
-            id:(req.session.userId ?? null),
-            name:(req.session.userName ?? null)
-        },
-        pollSearchViewModel
-        });
     }
 
     getHandler(req, res) {

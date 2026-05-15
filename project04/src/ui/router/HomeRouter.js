@@ -1,27 +1,25 @@
 import HomeMapper from "../mapper/HomeMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class HomeRouter {
+export default class HomeRouter extends BaseRouter {
 
     #pollService;
     #userService;
 
     constructor(pollService, userService) {
+        super(
+            'home', 
+            [],
+            [
+                new ExternalScript('/styles/home.css', 'text/css'),
+                new ExternalScript('/styles/components/homeAnimation.css', 'text/css'),
+                new ExternalScript('/styles/components/gallery.css', 'text/css')
+            ]
+        );
+
         this.#pollService = pollService;
         this.#userService = userService;
         this.getHandler = this.getHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, homeViewModel) {
-        res.render('home', {
-            account:{
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null)
-            },
-            homeViewModel,
-            scripts:[],
-            styles:[{src:'/styles/home.css'}, {src:'/styles/components/homeAnimation.css'}, {src:'/styles/components/gallery.css'}]
-        });
     }
 
     getHandler(req, res) {

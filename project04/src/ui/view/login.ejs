@@ -6,11 +6,11 @@
     <h1 class="title">ZALOGUJ SIĘ</h1>
 
     <div class="notifications">
-        <% if (loginViewModel.errors.length !== 0) { %>
+        <% if (viewModel.errors.length !== 0) { %>
         <div class="notification">
             Błędy w trakcie logowania
         <ul>
-        <% loginViewModel.errors.forEach(error => { %>
+        <% viewModel.errors.forEach(error => { %>
             <li><%= error %></li>
         <% })}; %>
         </ul>
@@ -25,7 +25,7 @@
                 placeholder="" 
                 minlength="3" 
                 maxlength="20"
-                value="<%= loginViewModel.cache.username %>" 
+                value="<%= viewModel.cache.username %>" 
                 required
             />
         </div>
@@ -36,7 +36,7 @@
                 placeholder="" 
                 minlength="12" 
                 maxlength="50" 
-                value="<%= loginViewModel.cache.password %>"
+                value="<%= viewModel.cache.password %>"
                 required
             />
         </div>

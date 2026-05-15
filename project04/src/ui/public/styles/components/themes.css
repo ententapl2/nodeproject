@@ -1,0 +1,25 @@
+:root {
+
+    --backgroundColor: rgb(35, 35, 35);
+    --footerColor: rgb(29,29,29);
+
+    --textColor: white;
+    --headerColor: rgb(255, 166, 0);
+    --slightHeaderColor: rgba(250, 223, 174, 1);
+
+
+    --borderColor: #cccccc28;
+    --boxShadow: rgba(0, 0, 0, 0.3);
+    --buttonShadow: rgb(75, 75, 75);
+    --buttonHoverColor: black;
+    --disabledButtonColor:rgba(0, 0, 0, 0.82);
+    --slightFieldBackgroundColor: #ffffff0a;
+
+
+    --errorBackground: rgb(127, 0, 0);
+    --errorTextColor: rgb(255, 156, 156);
+    --infoBackground: rgb(0, 76, 0);
+    --infoTextColor: rgb(115, 249, 115);
+    --autoCompleteColor: rgb(156, 154, 255);
+
+}

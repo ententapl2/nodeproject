@@ -83,8 +83,8 @@ export default class PollService {
         else return poll;
     }
 
-    loadPollForModifications(pollId, limit, page, userId, userRoles) {
-        const poll = this.loadPoll(pollId, limit, page);
+    loadPollForModifications(pollId, userId, userRoles) {
+        const poll = this.loadPoll(pollId, 0, 1);
         if (poll.author.id != userId && !userRoles.some(role => role.name === 'admin')) throw new AuthenticationError('Brak uprawnień do modyfikacji ankiety');
         return poll;
 

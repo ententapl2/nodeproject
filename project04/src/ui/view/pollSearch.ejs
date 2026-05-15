@@ -1,10 +1,10 @@
-<%- include('./partials/head.ejs', { scripts, styles, title:`Wyniki wyszukiwania`, phrase: pollSearchViewModel.phrase }) %> 
+<%- include('./partials/head.ejs', { scripts, styles, title:`Wyniki wyszukiwania`, phrase: viewModel.phrase }) %> 
 
 
 <main class="_hub">
     <section class="__banner">
 
-        <h1>Wyniki wyszukiwania dla frazy <i> <%= pollSearchViewModel.phrase %> </i> </h1>
+        <h1>Wyniki wyszukiwania dla frazy <i> <%= viewModel.phrase %> </i> </h1>
 
     </section>
 
@@ -12,7 +12,7 @@
 
         <div class="___galleryContent grid">
 
-            <% pollSearchViewModel.polls.forEach(poll => {  %>
+            <% viewModel.polls.forEach(poll => {  %>
 
                 <figure class="poll">
 
@@ -40,13 +40,13 @@
     
     <div class="__controls">
 
-        <a <%- pollSearchViewModel.page === 1 ? 'data-disabled' : `href="?search=${pollSearchViewModel.phrase}&page=${pollSearchViewModel.page - 1}"` %>> 
+        <a <%- viewModel.page === 1 ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page - 1}"` %>> 
             <img src="/images/icons/arrowThin.svg" alt="&lt" title="Poprzednia strona">
         </a>
 
-        <data id="pageNumber"> <%= pollSearchViewModel.page %> </data>
+        <data id="pageNumber"> <%= viewModel.page %> </data>
 
-        <a <%- pollSearchViewModel.isEnd ? 'data-disabled' : `href="?search=${pollSearchViewModel.phrase}&page=${pollSearchViewModel.page + 1}"` %>>
+        <a <%- viewModel.isEnd ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page + 1}"` %>>
             <img src="/images/icons/arrowThin.svg" alt="&gt" title="Następna strona">
         </a>
 

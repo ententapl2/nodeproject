@@ -1,27 +1,21 @@
 import RegisterMapper from "../mapper/RegisterMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class RegisterRouter {
+export default class RegisterRouter extends BaseRouter {
 
     #registerService;
 
     constructor(registerService) {
+        super(
+            'register', 
+            [],
+            [new ExternalScript('/styles/login.css', 'text/css')],
+            true
+        );
+
         this.#registerService = registerService;
         this.getHandler = this.getHandler.bind(this);
         this.postHandler = this.postHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, registerViewModel) {
-        res.render('register', {
-            scripts:[],
-            styles:[{src:'/styles/login.css'}],
-            registerViewModel,
-            account: {
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null),
-                csrf: req.csrfToken()
-            }
-        });
     }
 
     getHandler(req, res) {

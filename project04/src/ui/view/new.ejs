@@ -6,11 +6,11 @@
     <h1 class="__title">STWÓRZ ANKIETĘ</h1>
 
     <div class="notifications">
-        <% if (newViewModel.errors.length !== 0) { %>
+        <% if (viewModel.errors.length !== 0) { %>
         <div class="notification">
             Błędy w trakcie tworzenia ankiety
             <ul>
-            <% newViewModel.errors.forEach(error => { %>
+            <% viewModel.errors.forEach(error => { %>
                 <li><%= error %></li>
             <% }) %>
             </ul>
@@ -27,7 +27,7 @@
             maxlength="500" 
             title="Maksymalna długość pytania to 500 znaków" 
             required
-            ><%= Object.keys(newViewModel.cache).length !== 0 ? newViewModel.cache.question : '' %></textarea>
+            ><%= Object.keys(viewModel.cache).length !== 0 ? viewModel.cache.question : '' %></textarea>
 
         <textarea 
             type="text" 
@@ -35,11 +35,11 @@
             name="description" 
             maxlength="800" 
             title="Maksymalna długość opisu ankiety to 800 znaków" 
-        ><%= Object.keys(newViewModel.cache).length !== 0 ? newViewModel.cache.description : '' %></textarea>
+        ><%= Object.keys(viewModel.cache).length !== 0 ? viewModel.cache.description : '' %></textarea>
 
 
         <div id="options">
-            <% if (Object.keys(newViewModel.cache).length !== 0) { newViewModel.cache.options.forEach((option, index) => { %>
+            <% if (Object.keys(viewModel.cache).length !== 0) { viewModel.cache.options.forEach((option, index) => { %>
                 <div class="option">
                     <input name="option[]" placeholder="Opcja..." minlength="1" maxlength="100" title="Maksymalna długość opcji to 100 znaków" value="<%= option %>" required>    
                     <% if (index !== 0) { %> <button type="button" class="drop" ><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button> <% } %>

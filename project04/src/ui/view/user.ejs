@@ -1,4 +1,4 @@
-<%- include('./partials/head.ejs', { scripts, styles, title:userViewModel.userName}) %>
+<%- include('./partials/head.ejs', { scripts, styles, title:viewModel.userName}) %>
 
 
 
@@ -6,20 +6,20 @@
 
     <section class="__banner">
         <div class="___title">
-            <h1> <%= userViewModel.userName %> </h1>
-            <button id="copyUserLinkButton" data-userId="<%= userViewModel.userId %>">
+            <h1> <%= viewModel.userName %> </h1>
+            <button id="copyUserLinkButton" data-userId="<%= viewModel.userId %>">
                 <img src="/images/icons/link.svg" alt="Ikona prezentująca symbol hiperłącza"  title="Udostępnij ten profil">
             </button>
         </div>
         <div class="___info">
             <figure class="____infoLabel">
                 <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
-                <figcaption><%= userViewModel.pollCount %> ankiet</figcaption>
+                <figcaption><%= viewModel.pollCount %> ankiet</figcaption>
             </figure>
             ·
             <figure class="____infoLabel">
                 <img src="/images/icons/vote.svg" alt="Ikona prezentująca głos">
-                <figcaption><%= userViewModel.voteCount %> głosów</figcaption>
+                <figcaption><%= viewModel.voteCount %> głosów</figcaption>
             </figure> 
         </div>
     </section>
@@ -35,7 +35,7 @@
 
         <div class="___galleryContent">
 
-            <% userViewModel.userPolls.forEach(poll => { %>
+            <% viewModel.userPolls.forEach(poll => { %>
                 <figure class="poll">
                     <img src="/images/icons/poll.svg" alt="Ikona prezentująca ankietę">
                     <figcaption>

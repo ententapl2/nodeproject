@@ -1,27 +1,24 @@
 import UserMapper from "../mapper/UserMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class UserRouter {
+export default class UserRouter extends BaseRouter {
 
     #pollService;
     #userService;
 
     constructor(pollService, userService) {
+        super(
+            'user',
+            [new ExternalScript('/scripts/user.js', 'text/javascript')],
+            [
+                new ExternalScript('/styles/user.css', 'text/css'),
+                new ExternalScript('/styles/components/gallery.css', 'text/css')
+            ]
+        );
+
         this.#pollService = pollService;
         this.#userService = userService;
         this.getHandler = this.getHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, userViewModel) {
-        res.render('user', {
-            account:{
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null)
-            },
-            userViewModel,
-            scripts:[{type:'text/javascript', src:'/scripts/user.js'}],
-            styles:[{src:'/styles/user.css'}, {src:'/styles/components/gallery.css'}]
-        });
     }
 
     getHandler(req, res) {

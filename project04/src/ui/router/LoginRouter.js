@@ -1,28 +1,22 @@
 import LoginMapper from "../mapper/LoginMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class LoginRouter {
+export default class LoginRouter extends BaseRouter {
 
     #loginService;
 
     constructor(loginService) {
+        super(
+            'login',
+            [],
+            [new ExternalScript('/styles/login.css', 'text/css')],
+            true
+        );
+
         this.#loginService = loginService;
         this.getHandler = this.getHandler.bind(this);
         this.postHandler = this.postHandler.bind(this);
         this.logoutGetHandler = this.logoutGetHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, loginViewModel) {
-        res.render('login', {
-            scripts:[],
-            styles:[{src:'/styles/login.css'}],
-            loginViewModel,
-            account: {
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null),
-                csrf: req.csrfToken()
-            }
-        });
     }
 
     getHandler(req, res) {

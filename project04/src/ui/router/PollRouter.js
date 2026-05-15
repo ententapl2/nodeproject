@@ -1,29 +1,26 @@
 import AuthenticationError from "../../app/error/AuthenticationError.js";
 import NotFoundError from "../../app/error/NotFoundError.js";
 import PollMapper from "../mapper/PollMapper.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class PollRouter {
+export default class PollRouter extends BaseRouter {
 
     #pollService;
 
     constructor(pollService) {
+        super(
+            'poll',
+            [new ExternalScript('/scripts/poll.js', 'text/javascript')],
+            [
+                new ExternalScript('/styles/poll.css', 'text/css'),
+                new ExternalScript('/styles/components/gallery.css', 'text/css')
+            ]
+        );
+
         this.#pollService = pollService;
         this.getHandler = this.getHandler.bind(this);
         this.postHandler = this.postHandler.bind(this);
         this.deleteHandler = this.deleteHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, pollViewModel) {
-        res.render('poll', {
-            scripts:[{type:'text/javascript', src:'/scripts/poll.js'}],
-            styles:[{src:'/styles/poll.css'}, {src:'/styles/components/gallery.css'}],
-            pollViewModel,
-            account: {
-                id:(req.session.userId ?? null),
-                name:(req.session.userName ?? null)
-            }
-        });
     }
 
     getHandler(req, res) {

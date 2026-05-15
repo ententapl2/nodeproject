@@ -9,7 +9,7 @@
     
 
         & h1 {
-            color:rgb(255, 166, 0);
+            color:var(--headerColor);
             font-size: clamp(3rem, 10vw, 4rem);
             font-weight:bolder;
             word-break: break-all;
@@ -47,7 +47,7 @@
         display:flex;
         flex-direction: row;
         column-gap:0.2em;
-        color:white;
+        color:var(--textColor);
         
         & .____infoLabel {
             display: flex;
@@ -64,7 +64,7 @@
             & figcaption {
                 font-size: 0.8em;
                 font-weight: bold;
-                color:white;
+                color:var(--textColor);
             }
         }
     }

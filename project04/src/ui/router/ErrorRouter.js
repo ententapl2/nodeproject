@@ -1,6 +1,7 @@
 import ErrorViewModel from "../viewmodel/ErrorViewModel.js";
+import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
-export default class ErrorRouter {
+export default class ErrorRouter extends BaseRouter {
 
     static defaultStatus = 500;
     static allowedStatus = {
@@ -13,23 +14,14 @@ export default class ErrorRouter {
     };
 
     constructor() {
+        super(
+            'error',
+            [],
+            [new ExternalScript('/styles/errors.css', 'text/css')],
+        );
+
         this.getHandler = this.getHandler.bind(this);
         this.notFoundHandler = this.notFoundHandler.bind(this);
-        this.render = this.render.bind(this);
-    }
-
-    render(req, res, errorViewModel) {
-        res.status(errorViewModel.code).render(
-            'error', {
-                account:{
-                    id:(req.session?.userId ?? null),
-                    name:(req.session?.userName ?? null)
-                },
-                errorViewModel,
-                scripts:[],
-                styles:[{src:'/styles/errors.css'}]
-            }
-        );
     }
 
     getHandler(err, req, res, next) {        

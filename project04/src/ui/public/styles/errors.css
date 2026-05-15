@@ -3,16 +3,16 @@ main {
     justify-content: center;
     align-items: center;
     text-align:center;
-    color:rgb(255, 166, 0);
+    color:var(--headerColor);
 
     & #homeButton {
         text-decoration: none;
-        color:white;
+        color:var(--textColor);
         border-bottom: 1px solid transparent;
         transition: border-bottom 0.31s linear;
 
         &:hover {
-            border-bottom-color:white;
+            border-bottom-color:var(--textColor);
         }
     }
 }

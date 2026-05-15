@@ -19,7 +19,7 @@
         </h2>
         <div class="___galleryContent">
 
-            <% homeViewModel.mostPopularPolls.forEach(poll => { %>
+            <% viewModel.mostPopularPolls.forEach(poll => { %>
                 <figure class="poll">
                     <img src="/images/icons/poll.svg">
                     <figcaption>
@@ -50,7 +50,7 @@
         </h2>
         <div class="___galleryContent">
 
-            <% homeViewModel.recentPolls.forEach(poll => { %>
+            <% viewModel.recentPolls.forEach(poll => { %>
                 <figure class="poll">
                     <img src="/images/icons/poll.svg">
                     <figcaption>
@@ -81,7 +81,7 @@
         </h2>
         <div class="___galleryContent">
 
-            <% homeViewModel.mostActiveUsers.forEach(user => { %>
+            <% viewModel.mostActiveUsers.forEach(user => { %>
 
             <a href="/user/<%= user.id %>" title="Zobacz profil użytkownika <%= user.name %>">
                 <figure class="user">
