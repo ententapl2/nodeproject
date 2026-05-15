@@ -46,7 +46,7 @@ export default class ModifyRouter extends BaseRouter {
         const userRoles = req.session.userRoles ?? []; 
         const pollId = req.params.pollId;
 
-        const pollQuery = this.#pollService.loadPoll(pollId, 0, 0);
+        const pollQuery = this.#pollService.loadPoll(pollId, 0, 1);
         const poll = ModifyMapper.pollQueryToCache(pollQuery);
 
         const question = req.body.question;
