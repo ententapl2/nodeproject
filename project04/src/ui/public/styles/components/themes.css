@@ -3,8 +3,20 @@
     --backgroundColor: rgb(35, 35, 35);
     --footerColor: rgb(29,29,29);
 
+    --filterHoverTextColor: invert(1);
+    --filterTextColor: invert(0);
     --textColor: white;
     --headerColor: rgb(255, 166, 0);
+    --filterHeaderColor: 
+        brightness(0) 
+        saturate(100%) 
+        invert(56%) 
+        sepia(95%) 
+        saturate(900%) 
+        hue-rotate(2deg) 
+        brightness(103%) 
+        contrast(101%) 
+        brightness(70%);
     --slightHeaderColor: rgba(250, 223, 174, 1);
 
 
@@ -21,5 +33,19 @@
     --infoBackground: rgb(0, 76, 0);
     --infoTextColor: rgb(115, 249, 115);
     --autoCompleteColor: rgb(156, 154, 255);
+
+}
+
+[data-theme=light] {
+
+
+    --backgroundColor: white;
+    --footerColor: rgb(213, 213, 213);
+    --textColor: black;
+    --filterTextColor: invert(1);
+    --filterHoverTextColor: invert(0);
+
+    --buttonShadow: rgb(203, 203, 203);
+
 
 }

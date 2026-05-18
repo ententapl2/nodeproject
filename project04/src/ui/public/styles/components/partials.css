@@ -133,6 +133,7 @@ body {
             width:50px;
             height:auto;
             cursor:pointer;
+            filter: var(--filterTextColor);
         }
 
         @media only screen and (min-width:500px) {
@@ -145,7 +146,8 @@ body {
 
     & #userIconButton, 
     & #headerIcon, 
-    & #logoutIconButton {
+    & #logoutIconButton,
+    & #toggleTheme {
         overflow: hidden;
         max-width: 0;
         opacity: 0;

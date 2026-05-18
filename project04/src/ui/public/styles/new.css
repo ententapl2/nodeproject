@@ -98,6 +98,7 @@
                 & img {
                     width: 1.5em;
                     cursor: pointer;
+                    filter: var(--filterTextColor);
                 }
             }
         }
@@ -108,7 +109,7 @@
             & img {
                 cursor:pointer;
                 width: 1.5em;
-                filter: brightness(0) invert(1);
+                filter: var(--filterTextColor);
                 transition: all 0.31s ease;
 
                 &:hover {

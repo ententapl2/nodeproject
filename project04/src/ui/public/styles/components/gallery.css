@@ -17,6 +17,7 @@
 
             & img {
                 width:0.8em;
+                filter: var(--filterTextColor);
             }
 
             & figcaption {
@@ -77,8 +78,9 @@
             border: 1px solid var(--borderColor);
             border-radius: 13px;
 
-            & img {
+            & > img {
                 width:3em;
+                filter: var(--filterTextColor);
             }
 
             & figcaption {
@@ -151,11 +153,12 @@
                 
                 & img {
                     width:2em;
+                    filter: var(--filterTextColor);
                 }
 
                 & span {
                     text-align: center;
-                    color:white;
+                    color:var(--textColor);
                 }
 
                 &:hover {
@@ -166,7 +169,7 @@
                     }
                     
                     & img {
-                        filter: invert(1);
+                        filter: var(--filterHoverTextColor);
                     }
                 }
             }

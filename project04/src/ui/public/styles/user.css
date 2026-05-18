@@ -20,6 +20,7 @@
             display:contents;
 
             & img {
+                filter: var(--filterTextColor);
                 cursor:pointer;
                 width:3em;
                 opacity:0.3;
@@ -27,17 +28,7 @@
 
                 &:hover {
                     opacity:1;
-                    filter: 
-                        brightness(0) 
-                        saturate(100%) 
-                        invert(56%) 
-                        sepia(95%) 
-                        saturate(900%) 
-                        hue-rotate(2deg) 
-                        brightness(103%) 
-                        contrast(101%) 
-                        brightness(70%)
-                    ;
+                    filter: var(--filterHeaderColor);
                 }
             }
         }
@@ -57,6 +48,7 @@
             margin:0;
 
             & img {
+                filter: var(--filterTextColor);
                 width:0.8em;
                 height:auto;
             }

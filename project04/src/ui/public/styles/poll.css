@@ -28,17 +28,7 @@
 
         & img:hover {
             opacity: 1;
-            filter: 
-                brightness(0) 
-                saturate(100%) 
-                invert(56%) 
-                sepia(95%) 
-                saturate(900%) 
-                hue-rotate(2deg) 
-                brightness(103%) 
-                contrast(101%) 
-                brightness(70%)
-            ;
+            filter: var(--filterHeaderColor);
         }
 
         & .____question {
@@ -88,6 +78,7 @@
             & img {
                 width:1em;
                 height:auto;
+                filter: var(--filterTextColor);
             }
 
             & figcaption {
@@ -249,7 +240,7 @@
                     display: -webkit-box;
                     -webkit-box-orient: vertical; 
 
-                    color:white;
+                    color:var(--textColor);
                     word-break: break-all;
                     text-overflow: ellipsis;
                     text-decoration: none;
@@ -293,7 +284,8 @@
                 & a img {
                     width:2em;
                     cursor:pointer;
-                    background-color:rgba(255, 166, 0, 0.489);
+                    background-color: var(--headerColor);
+                    opacity:0.8;
                     padding:0.5em;
                     border-radius:13px;
                 }

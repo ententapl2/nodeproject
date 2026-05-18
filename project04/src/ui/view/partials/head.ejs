@@ -49,6 +49,7 @@
         <% if (account.id) { %>
          <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
         <% } %>
+        <button><img src="/images/icons/light.svg" id="toggleTheme" class="active"></button>
         <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
     </div>
 

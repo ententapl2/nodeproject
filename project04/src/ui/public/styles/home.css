@@ -45,7 +45,7 @@ a {
         height:6rem;
         border-radius: 50%;
         background-color: var(--backgroundColor);
-        color:white;
+        color:var(--textColor);
         font-weight: bold;
         font-size:2rem;
 
