@@ -13,7 +13,7 @@
 
         <h2 class="___galleryTitle">
             <figure>
-                <img src="/images/icons/star.svg">
+                <img src="/images/icons/star.svg" alt="">
                 <figcaption>Popularne ankiety</figcaption>
             </figure>
         </h2>
@@ -21,7 +21,7 @@
 
             <% viewModel.mostPopularPolls.forEach(poll => { %>
                 <figure class="poll">
-                    <img src="/images/icons/poll.svg">
+                    <img src="/images/icons/poll.svg" alt="">
                     <figcaption>
                         <h4> <%= poll.question %> </h4>
                         <ul class="pollOptions">
@@ -30,7 +30,7 @@
                     </figcaption>
 
                     <a href="/poll/<%= poll.id %>" class="pollVoteButton">
-                        <img src="/images/icons/vote.svg">
+                        <img src="/images/icons/vote.svg" alt="">
                         <span>ZAGŁOSUJ</span>
                     </a>
                 </figure>
@@ -44,7 +44,7 @@
 
         <h2 class="___galleryTitle">
             <figure>
-                <img src="/images/icons/recent.svg">
+                <img src="/images/icons/recent.svg" alt="">
                 <figcaption>Najnowsze ankiety</figcaption>
             </figure>
         </h2>
@@ -52,7 +52,7 @@
 
             <% viewModel.recentPolls.forEach(poll => { %>
                 <figure class="poll">
-                    <img src="/images/icons/poll.svg">
+                    <img src="/images/icons/poll.svg" alt="">
                     <figcaption>
                         <h4> <%= poll.question %> </h4>
                         <ul class="pollOptions">
@@ -61,7 +61,7 @@
                     </figcaption>
 
                     <a href="/poll/<%= poll.id %>" class="pollVoteButton">
-                        <img src="/images/icons/vote.svg">
+                        <img src="/images/icons/vote.svg" alt="">
                         <span>ZAGŁOSUJ</span>
                     </a>
                 </figure>
@@ -75,7 +75,7 @@
 
         <h2 class="___galleryTitle">
             <figure>
-                <img src="/images/icons/active.svg">
+                <img src="/images/icons/active.svg" alt="">
                 <figcaption>Najaktywniejsi użytkownicy</figcaption>
             </figure>
         </h2>
@@ -96,7 +96,7 @@
 
     </section>
 
-    <a id="addPollButton" href="/new"><img src="/images/icons/plus.svg" alt="Dodaj nową ankietę" title="Dodaj nową ankietę"></a>
+    <a id="addPollButton" href="/new" title="Dodaj nową ankietę"><img src="/images/icons/plus.svg" alt=""></a>
     <ul class="circles"><% for (let i=0; i<14; i++) { %> <li></li><% } %></ul>
     
 

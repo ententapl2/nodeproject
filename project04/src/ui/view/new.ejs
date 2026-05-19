@@ -42,7 +42,7 @@
             <% if (Object.keys(viewModel.cache).length !== 0) { viewModel.cache.options.forEach((option, index) => { %>
                 <div class="option">
                     <input name="option[]" placeholder="Opcja..." minlength="1" maxlength="100" title="Maksymalna długość opcji to 100 znaków" value="<%= option %>" required>    
-                    <% if (index !== 0) { %> <button type="button" class="drop" ><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button> <% } %>
+                    <% if (index !== 0) { %> <button type="button" class="drop" title="Usuń opcję"><img src="/images/icons/delete.svg" alt=""></button> <% } %>
                 </div>    
             <% })} else { %>
                 <div class="option">
@@ -51,7 +51,7 @@
             <% } %>
 
 
-            <button type="button" id="addOptionButton"><img src="/images/icons/plus.svg"></button>
+            <button type="button" id="addOptionButton" title="Dodaj opcję"><img src="/images/icons/plus.svg" alt=""></button>
 
         </div>
         <input type="hidden" name="_csrf" value="<%= account.csrf %>">

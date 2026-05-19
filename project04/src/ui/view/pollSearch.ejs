@@ -16,7 +16,7 @@
 
                 <figure class="poll">
 
-                    <img src="/images/icons/poll.svg">
+                    <img src="/images/icons/poll.svg" alt="">
                     <figcaption>
                         <h4> <%= poll.question %> </h4>
                         <ul class="pollOptions">
@@ -25,7 +25,7 @@
                     </figcaption>
 
                     <a href="/poll/<%= poll.id %>" class="pollVoteButton">
-                        <img src="/images/icons/vote.svg">
+                        <img src="/images/icons/vote.svg" alt="">
                         <span>ZAGŁOSUJ</span>
                     </a>
 
@@ -40,14 +40,14 @@
     
     <div class="__controls">
 
-        <a <%- viewModel.page === 1 ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page - 1}"` %>> 
-            <img src="/images/icons/arrowThin.svg" alt="&lt" title="Poprzednia strona">
+        <a <%- viewModel.page === 1 ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page - 1}"` %> title="Poprzednia strona"> 
+            <img src="/images/icons/arrowThin.svg" alt="&lt">
         </a>
 
         <data id="pageNumber"> <%= viewModel.page %> </data>
 
-        <a <%- viewModel.isEnd ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page + 1}"` %>>
-            <img src="/images/icons/arrowThin.svg" alt="&gt" title="Następna strona">
+        <a <%- viewModel.isEnd ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page + 1}"` %> title="Następna strona">
+            <img src="/images/icons/arrowThin.svg" alt="&gt">
         </a>
 
     </div>

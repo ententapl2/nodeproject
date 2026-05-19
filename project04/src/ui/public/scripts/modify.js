@@ -21,14 +21,14 @@ function handleAddOption() {
     input.required = true;
 
     const button = document.createElement('button');
+    button.title = 'Usuń opcję';
     button.type = 'button';
     button.classList.add('drop');
     button.addEventListener('click', handleDeleteOption);
 
     const img = document.createElement('img');
     img.src = '/images/icons/delete.svg';
-    img.alt = 'Usuń opcję';
-    img.title = 'Usuń opcję';
+    img.alt = '';
 
     button.appendChild(img);
     optionDiv.appendChild(input);

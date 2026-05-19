@@ -55,7 +55,7 @@
                         title="Maksymalna długość opcji to 100 znaków"
                         value="<%= option.name %>" 
                         required
-                    > <button type="button" class="drop"><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button>
+                    > <button type="button" class="drop" title="Usuń opcję"><img src="/images/icons/delete.svg" alt=""></button>
                 </div>
 
             <% })} else { %>
@@ -67,11 +67,11 @@
                         title="Maksymalna długość opcji to 100 znaków"
                         required
                     >
-                    <button type="button" class="drop"><img src="/images/icons/delete.svg" alt="Usuń opcję" title="Usuń opcję"></button>
+                    <button type="button" class="drop" title="Usuń opcję"><img src="/images/icons/delete.svg" alt=""></button>
                 </div>
             <% } %>
 
-            <button type="button" id="addOptionButton"><img src="/images/icons/plus.svg"></button>
+            <button type="button" id="addOptionButton" title="Dodaj opcję"><img src="/images/icons/plus.svg" alt=""></button>
 
         </div>
         <input type="hidden" name="_csrf" value="<%= account.csrf %>">

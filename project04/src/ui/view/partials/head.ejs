@@ -46,12 +46,12 @@
     </div>
 
     <div class="__headerOptions">
-        <img src="/images/icons/search.svg" id="searchIconButton">
+        <img src="/images/icons/search.svg" id="searchIconButton" alt="" title="Szukaj">
         <% if (account.id) { %>
-         <form action="/logout" method="POST"><button type="submit"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active"></button></form>
+         <form action="/logout" method="POST"><button type="submit" title="Wyloguj się"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active" alt=""></button></form>
         <% } %>
-        <button><img src="/images/icons/light.svg" id="toggleTheme" class="active"></button>
-        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt="Ikona użytkownika"></a>
+        <button title="Przełącz motyw"><img src="/images/icons/light.svg" id="toggleTheme" class="active" alt=""></button>
+        <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt=""></a>
     </div>
 
 
