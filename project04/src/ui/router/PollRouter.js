@@ -67,7 +67,7 @@ export default class PollRouter extends BaseRouter {
         const userId = req.session.userId;
 
         try {
-            const poll = this.#pollService.loadPoll(pollId);
+            const poll = this.#pollService.loadPoll(pollId, 0, 1);
             if (poll.author.id === userId || userRoles.some(role => role.name === 'admin')) {
                 this.#pollService.deletePoll(pollId);
                 res.redirect('/');
