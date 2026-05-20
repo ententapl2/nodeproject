@@ -7,8 +7,8 @@
   "scripts": {
     "test": "mocha",
     "prestart": "node src/boot.js",
-    "start": "node --env-file=src/.env src/index.js ",
-    "dev": "node src/boot.js && node --env-file=src/.env src/index.js --watch src"
+    "start": "node --watch --env-file=src/.env src/index.js ",
+    "dev": "node src/boot.js && node --watch --env-file=src/.env src/index.js"
   },
   "repository": {
     "type": "git",

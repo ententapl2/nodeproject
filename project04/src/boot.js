@@ -2,7 +2,7 @@ import fs from "fs";
 import { randomBytes } from "crypto";
 
 const envPath = './src/.env';
-const genereateSecret =  () => randomBytes(32).toString('base64url');
+const genereateSecret =  () => randomBytes(32).toString('hex');
 
 if (!fs.existsSync(envPath)) {
     const template = `

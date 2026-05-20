@@ -10,7 +10,7 @@
                     <h1><%= viewModel.question %></h1> 
                     <% if (viewModel.details.isAuthor) { %>
                         <form method="POST" action="?_method=DELETE">
-                            <button type="submit" id="deletePollButton" title="Usuń ankietę"><img src="/images/icons/delete.svg" alt="">
+                            <button type="submit" id="deletePollButton" title="Usuń ankietę"><img src="/images/icons/delete.svg" alt=""></button>
                         </form>
                         
                         <form method="GET" action="/modify/<%= viewModel.id %>">

@@ -42,38 +42,54 @@ export default class PollQueryMapper {
 
     static pollEntitiestoPollsSummary(query) {
         
-        const polls = {};
+        const pollsMap = new Map();
+
         for (const row of query) {
             const pollId = row['poll.id'];
             const optionId = row['option.id'];
-            const optionName = row['option.name'];
 
-            if (!polls[pollId]) {
-                polls[pollId] = {
-                    ...row,
-                    options:[]
+            let poll = pollsMap.get(pollId);
+
+            if (!poll) {
+                poll = {
+                    id: pollId,
+                    question: row['poll.question'],
+                    description: row['poll.description'],
+                    author: new UserQuery(
+                        row['author.id'],
+                        row['author.name']
+                    ),
+                    publicationDate: new Date(row['poll.publicationDate']),
+                    options: [],
+                    _optionIds: new Set()
                 };
+
+                pollsMap.set(pollId, poll);
             }
 
-            if (optionId && !polls[pollId].options.some(o => o.id === optionId)) {
-                polls[pollId].options.push({
+            if (optionId && !poll._optionIds.has(optionId)) {
+                poll._optionIds.add(optionId);
+                poll.options.push({
                     id: optionId,
-                    name:optionName
+                    name: row['option.name']
                 });
             }
         }
 
-        return Object.values(polls).map(row => new PollSummaryQuery(
-            row['poll.id'],
-            row['poll.question'],
-            row['poll.description'],
-            new UserQuery(
-                row['author.id'],
-                row['author.name']
-            ),
-            new Date(row['poll.publicationDate']).toLocaleDateString('pl-PL', {day:'2-digit', month:'2-digit', year:'numeric'}),
-            row['options']
-        ));
+        return Array.from(pollsMap.values()).map(p =>
+            new PollSummaryQuery(
+                p.id,
+                p.question,
+                p.description,
+                p.author,
+                p.publicationDate.toLocaleDateString('pl-PL', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                }),
+                p.options
+            )
+        );
 
     }
 

@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS poll(
     authorId INTEGER,
     publicationDate INTEGER,
 
-    CHECK(LENGTH(question) BETWEEN 1 AND 100),
+    CHECK(LENGTH(question) BETWEEN 1 AND 500),
     CHECK(LENGTH(description) <= 800),  
     FOREIGN KEY(authorId) REFERENCES user(id) 
         ON DELETE SET NULL
