@@ -50,9 +50,9 @@ export default class AuthService {
 
         const user = this.#userQueryRepo.getAuthUserQuery(username);
         if (user) {
-            const match = await user.password.startsWith('$2') 
-                ? bcrypt.compare(password, user.password) 
-                : argon2.verify(user.password, password, {secret: Buffer.from(this.#pepper, "hex")});
+            const match = user.password.startsWith('$2') 
+                ? await bcrypt.compare(password, user.password) 
+                : await argon2.verify(user.password, password, {secret: Buffer.from(this.#pepper, "hex")});
             user.password.startsWith('$2') && this.#migratePassword(user, password);
 
             validation.push('Nieprawidłowe hasło');
