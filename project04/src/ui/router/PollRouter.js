@@ -14,7 +14,8 @@ export default class PollRouter extends BaseRouter {
             [
                 new ExternalScript('/styles/poll.css', 'text/css'),
                 new ExternalScript('/styles/components/gallery.css', 'text/css')
-            ]
+            ],
+            true
         );
 
         this.#pollService = pollService;

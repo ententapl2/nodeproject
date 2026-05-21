@@ -11,6 +11,7 @@
                     <% if (viewModel.details.isAuthor) { %>
                         <form method="POST" action="?_method=DELETE">
                             <button type="submit" id="deletePollButton" title="Usuń ankietę"><img src="/images/icons/delete.svg" alt=""></button>
+                            <input type="hidden" name="_csrf" value="<%= account.csrf %>">
                         </form>
                         
                         <form method="GET" action="/modify/<%= viewModel.id %>">
@@ -94,7 +95,8 @@
             </div>
             </button>
             <% }) %>
-        <input type="hidden" value="vote" name="method">
+            <input type="hidden" name="_csrf" value="<%= account.csrf %>">
+            <input type="hidden" value="vote" name="method">
         </form>
 
         <% } %>

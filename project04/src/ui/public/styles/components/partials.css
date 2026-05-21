@@ -34,6 +34,8 @@ body {
     justify-content: space-between;
     align-items: center;
     column-gap: 1em;
+    padding:1rem;
+    box-sizing: border-box;
     width:100%;
 
     & .__headerHome img {
@@ -41,7 +43,7 @@ body {
         width:55px;
         height:auto;
 
-        @media only screen and (min-width:500px) {
+        @media only screen and (min-width:600px) {
             & {
                 width:150px;
                 height:auto;
@@ -87,7 +89,7 @@ body {
                 border-radius: 13px;
                 background: url(/images/icons/clearSearchBar.svg) no-repeat 50% 50%;
                 background-size: contain;
-                filter:invert(1);
+                filter: var(--filterHoverTextColor);
                 opacity:0.3;
                 cursor: pointer;
                 transition: opacity 0.31s linear;
@@ -109,7 +111,7 @@ body {
             
         }
 
-        @media only screen and (min-width:500px) {
+        @media only screen and (min-width:600px) {
             & {
                 opacity:1;
                 visibility: visible;
@@ -136,7 +138,7 @@ body {
             filter: var(--filterTextColor);
         }
 
-        @media only screen and (min-width:500px) {
+        @media only screen and (min-width:600px) {
             & #searchIconButton {
                 display:none;
             }
@@ -163,7 +165,7 @@ body {
             transition-delay: 0s;
         }
 
-        @media only screen and (min-width:500px) {
+        @media only screen and (min-width:600px) {
             & {
                 max-width:initial;
                 opacity:1;
@@ -181,7 +183,9 @@ body {
 
 main {
     flex:1;
-    margin:8px;
+    padding: 0 2rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
     display:flex;
     flex-direction: column;
 }

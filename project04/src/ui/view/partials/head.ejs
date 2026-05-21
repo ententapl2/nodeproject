@@ -33,7 +33,7 @@
     <div class="__headerHome active" id="headerIcon">
         <a href="/">
             <picture>
-                <source media="(min-width:500px)" srcset="/images/header/Umfragen-header.svg">
+                <source media="(min-width:600px)" srcset="/images/header/Umfragen-header.svg">
                 <img src="/images/header/Umfragen-header-min.svg" alt="Logo serwisu">
             </picture>
         </a>
@@ -47,10 +47,10 @@
 
     <div class="__headerOptions">
         <img src="/images/icons/search.svg" id="searchIconButton" alt="" title="Szukaj">
+        <button title="Przełącz motyw"><img src="/images/icons/light.svg" id="toggleTheme" class="active" alt=""></button>
         <% if (account.id) { %>
          <form action="/logout" method="POST"><button type="submit" title="Wyloguj się"><img src="/images/icons/logout.svg" id="logoutIconButton" class="active" alt=""></button></form>
         <% } %>
-        <button title="Przełącz motyw"><img src="/images/icons/light.svg" id="toggleTheme" class="active" alt=""></button>
         <a href="<%= account.id ? `/user/${account.id}` : '/login' %>" title="Konto"><img src="/images/icons/user.svg" id="userIconButton" class="active" alt=""></a>
     </div>
 

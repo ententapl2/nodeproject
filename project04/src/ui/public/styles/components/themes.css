@@ -26,6 +26,7 @@
     --buttonHoverColor: black;
     --disabledButtonColor:rgba(0, 0, 0, 0.82);
     --slightFieldBackgroundColor: #ffffff0a;
+    --homeAnimationBackgroundColor: rgba(255, 255, 255, 0.2);
 
 
     --errorBackground: rgb(127, 0, 0);
@@ -44,8 +45,16 @@
     --textColor: black;
     --filterTextColor: invert(1);
     --filterHoverTextColor: invert(0);
+    --slightHeaderColor: rgb(196, 130, 7);
 
     --buttonShadow: rgb(203, 203, 203);
+    --slightFieldBackgroundColor: rgba(180, 180, 180, 0.186);
+    --homeAnimationBackgroundColor: rgba(226, 226, 226, 1);
+
+    --errorBackground: rgb(255, 156, 156);
+    --errorTextColor: rgb(127, 0, 0);
+    --infoBackground: rgb(115, 249, 115);
+    --infoTextColor: rgb(0, 76, 0);
 
 
 }

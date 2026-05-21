@@ -88,7 +88,7 @@ app.post('/logout', loginRouter.logoutGetHandler);
 
 app.get('/', homeRouter.getHandler);
 app.get('/poll', pollSearchRouter.getHandler);
-app.get('/poll/:pollId', pollRouter.getHandler);
+app.get('/poll/:pollId', csrfHelmet, pollRouter.getHandler);
 app.post('/poll/:pollId', pollRouter.postHandler);
 app.delete('/poll/:pollId', pollRouter.deleteHandler);
 

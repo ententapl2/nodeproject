@@ -1,3 +1,5 @@
+@import './themes.css';
+
 .circles {
     position: fixed;
     top: 0;
@@ -16,7 +18,7 @@
     display: block;
     list-style: none;
     bottom: -150px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--homeAnimationBackgroundColor);
     animation: animate linear infinite;
 }
 

@@ -5,6 +5,7 @@ main {
     & .title {
         font-size: 3rem;
         color:var(--headerColor);
+        text-align: center;
     }
 
     & .notifications {
@@ -66,7 +67,9 @@ main {
                 border:1px solid var(--borderColor);
                 box-sizing: border-box;
                 border-radius: 8px;
-                padding:2.5em 2em 1em 1em;
+                padding:2.5em 5em 1em 1em;
+                max-width:250px;
+                width:100%;
                 color:var(--textColor);
                 font-weight: normal;
                 transition: outline 0.31s linear;
