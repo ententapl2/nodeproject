@@ -20,6 +20,7 @@ konfigurację
 
 6. Uruchom serwer poprzez ``` npm run start ``` lub ```npm start```
 7. W celu całkowitego zresetowania bazy danych aplikacji najbezpieczniej usunąć plik bazy znajdujący się w katalogu ```src/data/db```
+8. Po zrealizowaniu poniższych kroków można wypełnić bazę danych danymi testowymi uruchamiając ```npm run seed```
 
 # Notatka w celu odtworzenia historii
 

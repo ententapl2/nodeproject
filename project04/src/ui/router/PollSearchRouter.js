@@ -1,5 +1,4 @@
 import InvalidInputError from "../../app/error/InvalidInputError.js";
-import NotFoundError from "../../app/error/NotFoundError.js";
 import PollSearchMapper from "../mapper/PollSearchMapper.js";
 import BaseRouter, { ExternalScript } from "./BaseRouter.js";
 
@@ -31,8 +30,7 @@ export default class PollSearchRouter extends BaseRouter {
             const pollSearchViewModel = PollSearchMapper.pollSearchQueryToViewModel(polls, phrase, page, limit);
             return this.render(req, res, pollSearchViewModel);
         } catch (e) {
-            if (e instanceof NotFoundError) throw 404;
-            else if (e instanceof InvalidInputError) throw 400;
+            if (e instanceof InvalidInputError) throw 400;
             else throw 500;
         }
     }

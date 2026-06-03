@@ -95,7 +95,6 @@ export default class PollService {
         const offset = (page - 1) * limit;
         const polls = this.#pollQueryRepo.getPollsSummaryByPhrase(phrase, limit+1, offset);
 
-        if (polls.length === 0) throw new NotFoundError('Nie znaleziono');
         return polls;
     }
 

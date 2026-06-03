@@ -7,8 +7,9 @@
   "scripts": {
     "test": "mocha",
     "prestart": "node src/boot.js",
-    "start": "node --watch --env-file=src/.env src/index.js ",
-    "dev": "node src/boot.js && node --watch --env-file=src/.env src/index.js"
+    "start": "node --watch --env-file=./.env src/index.js ",
+    "dev": "node src/boot.js && node --watch --env-file=./.env src/index.js",
+    "seed": "node --env-file=./.env src/seed.js"
   },
   "repository": {
     "type": "git",
@@ -22,10 +23,10 @@
   },
   "homepage": "https://github.com/ententapl2/Umfragen#readme",
   "dependencies": {
+    "@dr.pogodin/csurf": "^1.17.0",
     "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
-    "csurf": "^1.11.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2",

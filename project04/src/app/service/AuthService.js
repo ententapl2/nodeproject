@@ -53,7 +53,7 @@ export default class AuthService {
             const match = user.password.startsWith('$2') 
                 ? await bcrypt.compare(password, user.password) 
                 : await argon2.verify(user.password, password, {secret: Buffer.from(this.#pepper, "hex")});
-            user.password.startsWith('$2') && this.#migratePassword(user, password);
+            user.password.startsWith('$2') && await this.#migratePassword(user, password);
 
             validation.push('Nieprawidłowe hasło');
             if (!match) throw new InvalidInputError('Niepoprawne dane wejściowe', validation); 

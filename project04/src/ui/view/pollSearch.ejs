@@ -4,7 +4,7 @@
 <main class="_hub">
     <section class="__banner">
 
-        <h1>Wyniki wyszukiwania dla frazy <i> <%= viewModel.phrase %> </i> </h1>
+        <h1><%= viewModel.polls.length !== 0 ? 'Wyniki wyszukiwania dla frazy' : 'Brak wyników wyszukiwania dla frazy: ' %> <i> <%= viewModel.phrase %> </i> </h1>
 
     </section>
 
@@ -38,7 +38,9 @@
 
     </section>
     
+    <% if (viewModel.polls.length !== 0) { %>
     <div class="__controls">
+
 
         <a <%- viewModel.page === 1 ? 'data-disabled' : `href="?search=${viewModel.phrase}&page=${viewModel.page - 1}"` %> title="Poprzednia strona"> 
             <img src="/images/icons/arrowThin.svg" alt="&lt">
@@ -51,6 +53,7 @@
         </a>
 
     </div>
+    <% } %>
 
 
 </main>

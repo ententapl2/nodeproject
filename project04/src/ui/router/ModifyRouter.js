@@ -65,7 +65,7 @@ export default class ModifyRouter extends BaseRouter {
             if (e instanceof AuthenticationError) throw 401;
             else if (e instanceof NotFoundError) throw 404;
 
-            const modifyViewModel = ModifyMapper.validationToModifyViewModel(e.details, poll);
+            const modifyViewModel = ModifyMapper.validationToModifyViewModel(e.details, poll, pollId);
             return this.render(req, res, modifyViewModel); 
         }
 

@@ -7,19 +7,18 @@ export default class Database {
 
     #db;
 
-    #constructDb(dbName) {
+    #constructDb(dbPath) {
         const __dirname = path.dirname(fileURLToPath(import.meta.url));
-        const dbPath = path.join(__dirname, dbName);
         const buildPath = path.join(__dirname, 'constructDb.sql');
 
         this.#db = new DatabaseSync(dbPath);
-        let quries =  fs.readFileSync(buildPath, {
+        let queries =  fs.readFileSync(buildPath, {
             encoding: 'utf8',
             flag: 'r'
         });
 
         try {
-            this.#db.exec(quries);
+            this.#db.exec(queries);
         } catch (err) {
             console.log(`Błąd w odczycie danych: ${err}`);
         }

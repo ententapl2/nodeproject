@@ -22,9 +22,16 @@ import ErrorRouter from "./ui/router/ErrorRouter.js";
 import ModifyRouter from "./ui/router/ModifyRouter.js";
 import UnitOfWorkImpl from "./data/impl/UnitOfWorkImpl.js";
 import cookieParser from "cookie-parser";
-import csurf from "csurf";
+import csrf from "@dr.pogodin/csurf";
 import SessionStoreImpl from "./data/impl/SessionStoreImpl.js";
 import Seeder from "./data/db/Seeder.js";
+
+['PORT', 'DB', 'ADMIN_NAME', 'SECRET', 'PEPPER'].forEach((el) => {
+  if (!(el in process.env)) {
+    console.error(`\x1b[31m Błąd: niepełna konfiguracja.\x1b[0m\x1b[33m Brak właściwości: ${el} \x1b[0m `);
+    process.exit(1);
+  }
+});
 
 const pepper = process.env.PEPPER;
 const port = process.env.PORT;
@@ -56,7 +63,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-const csrfHelmet = csurf();
+const csrfHelmet = csrf();
 
 const userQueryRepo = new UserQueryRepoImpl(db);
 const userRepo = new UserRepoImpl(db);
